@@ -6,7 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <div style={{ padding: 10 }}>
       <PhoneInput />
     </div>
   );
