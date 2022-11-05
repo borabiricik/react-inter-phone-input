@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to boilerplate-lib-vite-react 👋</h1>
+<!-- <h1 align="center">Welcome to boilerplate-lib-vite-react 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/panhavsilva/boilerplate-lib-vite-react#readme" target="_blank">
@@ -36,7 +36,7 @@ yarn dev
 #dev server running at: http://localhost:3000/
 ```
 
-## 
+##
 ## Scripts
 | Script                        | Description                                                    |
 | ----------------------------- | -------------------------------------------------------------  |
@@ -110,7 +110,7 @@ yarn dev
   </div>
 
   ### Change in your project
-  - In to folder lib: 
+  - In to folder lib:
     + Change main.tsx to name of your lib.tsx
     + Include code of your lib here.
   - In to package.json:
@@ -160,7 +160,7 @@ yarn dev
         },
       },
     ```
-  - In to src/ app.tsx 
+  - In to src/ app.tsx
     + Import your lib from ./lib.
     + Include your lib in the return function app.
   - Assets folder can be deleted
@@ -180,4 +180,6 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © current [Pâmela Vieira da Silva - @panhavsilva](https://github.com/panhavsilva).<br />
-This project is [MIT](https://github.com/panhavsilva/boilerplate-lib-vite-react/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/panhavsilva/boilerplate-lib-vite-react/blob/master/LICENSE) licensed. -->
+
+will add
