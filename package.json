@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/panhavsilva/boilerplate-lib-vite-react.git"
+    "url": "git+https://github.com/borabiricik/react-inter-phone-input-2.git"
   },
   "keywords": [],
   "author": "Bora Biricik - @borabiricik",
   "bugs": {
-    "url": "https://github.com/panhavsilva/boilerplate-lib-vite-react/issues"
+    "url": "https://github.com/borabiricik/react-inter-phone-input-2.git/issues"
   },
-  "homepage": "https://github.com/panhavsilva/boilerplate-lib-vite-react#readme",
+  "homepage": "https://github.com/borabiricik/react-inter-phone-input-2.git#readme",
   "peerDependencies": {
     "react": ">=17.x"
   },
