@@ -1,13 +1,5 @@
-import styled from "styled-components";
-const StyledInput = styled.input`
-  border: none;
-  border-radius: 6px;
-  background-color: red;
-  flex: 1 1 0%;
-`;
-
 const Input = () => {
-  return <StyledInput type="text" />;
+  return <input className="border-none flex-1 outline-none" type="text" />;
 };
 
 export default Input;
