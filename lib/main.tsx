@@ -14,18 +14,32 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
     props.countries ? props.countries : []
   );
+  const [isDropdownOpen, setisDropdownOpen] = useState(false);
+  const [selectedCountry, setselectedCountry] = useState<ICountry | null>(null);
   const { countries } = props;
   useEffect(() => {
     if (!countries) {
       axios.get("https://restcountries.com/v3.1/all").then((res) => {
         setinternalCounties(
-          res.data.map((country: any) => {
-            return {
-              name: country.name.common,
-              flag: country.flags.svg,
-              dialCode: country.idd.root,
-            };
-          })
+          res.data
+            .sort(function (a: ICountry, b: ICountry) {
+              if (a.name < b.name) {
+                return -1;
+              }
+              if (a.name > b.name) {
+                return 1;
+              }
+              return 0;
+            })
+            .map((country: any) => {
+              return {
+                name: country.name.common,
+                flag: country.flags.svg,
+                dialCode: {
+                  ...country.idd,
+                },
+              };
+            })
         );
       });
     }
@@ -33,7 +47,14 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
 
   return (
     <PhoneInputContext.Provider
-      value={{ ...props, countries: internalCounties }}
+      value={{
+        ...props,
+        countries: internalCounties,
+        selectedCountry,
+        setselectedCountry,
+        isDropdownOpen,
+        setisDropdownOpen,
+      }}
     >
       <div className="rounded-[6px] flex items-stretch">
         <Dropdown />

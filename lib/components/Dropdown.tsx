@@ -6,13 +6,15 @@ import ChevronDownSVG from "./icons/ChevronDownSVG";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Dropdown = () => {
-  const { countries } = useContext(PhoneInputContext);
-  const [isDropdownOpen, setisDropdownOpen] = useState(false);
+  const { countries, isDropdownOpen, setisDropdownOpen } =
+    useContext(PhoneInputContext);
+
   const [referenceElement, setReferenceElement] = useState<any>(null);
   const [popperElement, setPopperElement] = useState<any>(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: "bottom",
   });
+
   return (
     <>
       <div
@@ -34,12 +36,23 @@ const Dropdown = () => {
               {...attributes.popper}
             >
               <motion.div
-                key={"asd"}
-                className="bg-red-200"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                className="overflow-scroll max-h-[200px] flex flex-col scrollbar-hide"
+                initial={{ height: 0 }}
+                animate={{ height: "auto" }}
+                exit={{ height: 0 }}
               >
-                Popper
+                {countries.map((country) => {
+                  console.log(country);
+                  return country.dialCode.suffixes?.map((suffix: string) => {
+                    return (
+                      <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                        <img src={country.flag} className="w-5 h-5" alt="" />
+                        <span>{country.name}</span>
+                        <span>{`${country.dialCode.root} ${suffix}`}</span>
+                      </div>
+                    );
+                  });
+                })}
               </motion.div>
             </div>
           )}
