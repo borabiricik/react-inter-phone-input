@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import ChevronDownSVG from "./icons/ChevronDownSVG";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Dropdown = () => {
   const { countries } = useContext(PhoneInputContext);
@@ -12,8 +13,6 @@ const Dropdown = () => {
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: "bottom",
   });
-
-  console.log(popperElement, referenceElement);
   return (
     <>
       <div
@@ -22,19 +21,31 @@ const Dropdown = () => {
         className="cursor-pointer flex items-center space-x-4 rtl:space-x-reverse"
       >
         <span>Select</span>
-        <ChevronDownSVG style={{ width: 16, height: 16 }} />
+        <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }}>
+          <ChevronDownSVG style={{ width: 12, height: 12 }} />
+        </motion.div>
       </div>
-      {isDropdownOpen &&
-        createPortal(
-          <div
-            ref={setPopperElement}
-            style={styles.popper}
-            {...attributes.popper}
-          >
-            Popper
-          </div>,
-          document.body
-        )}
+      {createPortal(
+        <AnimatePresence exitBeforeEnter>
+          {isDropdownOpen && (
+            <div
+              ref={setPopperElement}
+              style={styles.popper}
+              {...attributes.popper}
+            >
+              <motion.div
+                key={"asd"}
+                className="bg-red-200"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                Popper
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 };
