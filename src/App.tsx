@@ -56,6 +56,7 @@ function App () {
           </div>
         }
         isCountrySelectEnabled={isCountrySelectedEnabled}
+        isSearchable
       />
 
       <div className='text-xl'>

@@ -25,6 +25,8 @@ export interface IPhoneInputContextProps extends IPhoneInputProps {
     setisDropdownOpen: Function
     phoneNumber: string
     setphoneNumber: Function
+    filteredCountries: ICountry[]
+    setfilteredCountries: Function
 }
 
 export interface ICountry {

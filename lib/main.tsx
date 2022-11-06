@@ -19,6 +19,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
     props.countries ? props.countries : []
   );
+  const [filteredCountries, setfilteredCountries] = useState<ICountry[]>([]);
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
 
   const [selectedCountry, setselectedCountry] =
@@ -88,6 +89,8 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setisDropdownOpen,
         phoneNumber,
         setphoneNumber,
+        filteredCountries,
+        setfilteredCountries,
       }}
     >
       <div
