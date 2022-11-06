@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import { DetailedHTMLProps, HTMLAttributes, ImgHTMLAttributes, InputHTMLAttributes } from "react"
 
 export interface IPhoneInputProps {
     countries?: ICountry[]
@@ -7,6 +7,8 @@ export interface IPhoneInputProps {
     onInputChange?: (phoneNumber: string) => void
     containerProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
     dropdownButtonProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+    flagProps?: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>
+    inputProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 }
 
 export interface IPhoneInputContextProps extends IPhoneInputProps {

@@ -1,16 +1,13 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
-import React, { useContext, useRef } from "react";
-import { motion } from "framer-motion";
-import Countries from "./Countries";
 import { IDropdownMenuProps } from "lib/types/Dropdown";
-import { useOutsideClick } from "lib/hooks/useOutsideClick";
+import { useContext } from "react";
+import Countries from "./Countries";
 
 const DropdownMenu = ({
   setPopperElement,
   styles,
   attributes,
-  popperElement,
 }: IDropdownMenuProps) => {
   const { isDropdownOpen } = useContext(PhoneInputContext);
   return (
@@ -22,7 +19,7 @@ const DropdownMenu = ({
           {...attributes.popper}
         >
           <motion.div
-            className="overflow-scroll max-h-[200px] flex flex-col scrollbar-hide"
+            className="overflow-scroll max-h-[200px] flex flex-col scrollbar-hide bg-white"
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}

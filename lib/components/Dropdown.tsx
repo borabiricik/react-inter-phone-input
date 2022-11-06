@@ -14,6 +14,7 @@ const Dropdown = () => {
     setisDropdownOpen,
     selectedCountry,
     dropdownButtonProps = {},
+    flagProps = {},
   } = useContext(PhoneInputContext);
 
   const [referenceElement, setReferenceElement] = useState<any>(null);
@@ -25,25 +26,24 @@ const Dropdown = () => {
         name: "offset",
         enabled: true,
         options: {
-          offset: [0, 10],
+          offset: [0, 0],
         },
       },
     ],
   });
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useOutsideClick(containerRef, () => setisDropdownOpen(false));
-
   const {
     className: dropdownButtonClassName = "",
     ref = null,
     onClick,
+    placeholder,
     ...restDropdownButtonProps
   } = dropdownButtonProps;
 
+  const { className: flagClassName = "", src, ...restFlagProps } = flagProps;
+
   return (
-    <div ref={containerRef}>
+    <>
       <div
         {...restDropdownButtonProps}
         ref={setReferenceElement}
@@ -61,13 +61,14 @@ const Dropdown = () => {
             <span className="flex items-center space-x-1 rtl:space-x-reverse">
               <img
                 src={selectedCountry.flag}
-                alt=""
-                className="w-4 h-4 object-cover"
+                alt="Selected Country Flag"
+                className={classNames("w-4 h-4 object-fill", flagClassName)}
+                {...restFlagProps}
               />
               <span>{selectedCountry.dialCode}</span>
             </span>
           ) : (
-            "Select"
+            placeholder
           )}
         </div>
 
@@ -84,7 +85,7 @@ const Dropdown = () => {
         />,
         document.body
       )}
-    </div>
+    </>
   );
 };
 
