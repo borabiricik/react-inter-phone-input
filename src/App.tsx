@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import PhoneInput from 'react-inter-phone-input'
-import './app-style.css'
+import PhoneInput from "react-inter-phone-input";
+import "./app-style.css";
 
-function App () {
-  const [count, setCount] = useState(0)
-
+function App() {
   return (
-    <div style={{ padding: 10 }}>
+    <div className="w-1/2 bg-red-200 mx-auto">
       <PhoneInput />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

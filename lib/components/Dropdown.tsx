@@ -14,7 +14,16 @@ const Dropdown = () => {
   const [referenceElement, setReferenceElement] = useState<any>(null);
   const [popperElement, setPopperElement] = useState<any>(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement: "bottom",
+    placement: "bottom-start",
+    modifiers: [
+      {
+        name: "offset",
+        enabled: true,
+        options: {
+          offset: [0, 10],
+        },
+      },
+    ],
   });
 
   const containerRef = useRef<HTMLDivElement>(null);
