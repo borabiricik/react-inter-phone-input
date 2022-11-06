@@ -12,7 +12,7 @@ const DropdownMenu = ({
   attributes,
   popperElement,
 }: IDropdownMenuProps) => {
-  const { isDropdownOpen, setisDropdownOpen } = useContext(PhoneInputContext);
+  const { isDropdownOpen } = useContext(PhoneInputContext);
   return (
     <AnimatePresence>
       {isDropdownOpen && (

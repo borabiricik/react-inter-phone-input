@@ -1,12 +1,20 @@
-import PhoneInput from 'react-inter-phone-input'
-import './app-style.css'
+import { ICountry, ISelectedCountry } from "lib/types/main";
+import { useState } from "react";
+import PhoneInput from "react-inter-phone-input";
+import "./app-style.css";
 
-function App () {
+function App() {
+  const [selectedCountry, setselectedCountry] =
+    useState<ISelectedCountry | null>(null);
   return (
-    <div className='w-1/2 bg-red-200 mx-auto'>
-      <PhoneInput />
+    <div className="">
+      <PhoneInput onCountryChange={(country) => setselectedCountry(country)} />
+      <div>
+        <h1 className="text-xl">Selected country</h1>
+        {selectedCountry && JSON.stringify(selectedCountry)}
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

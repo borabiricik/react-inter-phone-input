@@ -1,10 +1,13 @@
 export interface IPhoneInputProps {
     countries?: ICountry[]
+    onChange?: (country: ISelectedCountry, phoneNumber: string) => void
+    onCountryChange?: (country: ISelectedCountry) => void
+    onInputChange?: (phoneNumber: string) => void
 }
 
-export interface IPhoneInputContextProps {
+export interface IPhoneInputContextProps extends IPhoneInputProps {
     countries: ICountry[]
-    selectedCountry: ICountry | null
+    selectedCountry: ISelectedCountry | null
     setselectedCountry: Function
     isDropdownOpen: boolean
     setisDropdownOpen: Function
@@ -18,4 +21,9 @@ export interface ICountry {
         suffixes: string[]
     }
     flag: string
+}
+
+export interface ISelectedCountry extends Omit<ICountry, 'dialCode'> {
+    dialCode: string
+
 }

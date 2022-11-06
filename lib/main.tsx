@@ -5,15 +5,17 @@ import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import { PhoneInputContext } from "./context/PhoneInputContext";
 import "./styles/global.css";
-import { ICountry, IPhoneInputProps } from "./types/main";
+import { ICountry, IPhoneInputProps, ISelectedCountry } from "./types/main";
 
 const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
     props.countries ? props.countries : []
   );
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
-  const [selectedCountry, setselectedCountry] = useState<ICountry | null>(null);
-  const { countries } = props;
+  const [selectedCountry, setselectedCountry] =
+    useState<ISelectedCountry | null>(null);
+  const [phoneNumber, setphoneNumber] = useState("");
+  const { countries, onCountryChange } = props;
   useEffect(() => {
     if (!countries) {
       axios
@@ -38,6 +40,16 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         });
     }
   }, []);
+
+  useEffect(() => {
+    if (selectedCountry) {
+      onCountryChange &&
+        onCountryChange({
+          ...selectedCountry,
+          dialCode: `${selectedCountry.dialCode}`,
+        });
+    }
+  }, [selectedCountry]);
 
   return (
     <PhoneInputContext.Provider

@@ -9,7 +9,10 @@ const CountryItem = ({ country, suffix }: ICountryItemProps) => {
     <div
       className="flex items-center space-x-2 rtl:space-x-reverse cursor-pointer"
       onClick={() => {
-        setselectedCountry(country);
+        setselectedCountry({
+          ...country,
+          dialCode: `${country.dialCode.root}${suffix}`,
+        });
         setisDropdownOpen(false);
       }}
     >
