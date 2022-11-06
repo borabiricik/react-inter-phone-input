@@ -7,4 +7,6 @@ export const PhoneInputContext = createContext<IPhoneInputContextProps>({
   setselectedCountry: () => {},
   isDropdownOpen: false,
   setisDropdownOpen: () => {},
+  phoneNumber: "",
+  setphoneNumber: () => {},
 });

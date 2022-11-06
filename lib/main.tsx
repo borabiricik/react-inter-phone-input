@@ -60,6 +60,8 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setselectedCountry,
         isDropdownOpen,
         setisDropdownOpen,
+        phoneNumber,
+        setphoneNumber,
       }}
     >
       <div className="rounded-[6px] flex items-stretch">

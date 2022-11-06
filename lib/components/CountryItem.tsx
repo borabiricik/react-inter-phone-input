@@ -3,7 +3,7 @@ import { ICountryItemProps } from "lib/types/Dropdown";
 import { useContext } from "react";
 
 const CountryItem = ({ country, suffix }: ICountryItemProps) => {
-  const { setselectedCountry, setisDropdownOpen } =
+  const { setselectedCountry, setisDropdownOpen, onChange, phoneNumber } =
     useContext(PhoneInputContext);
   return (
     <div
@@ -13,6 +13,14 @@ const CountryItem = ({ country, suffix }: ICountryItemProps) => {
           ...country,
           dialCode: `${country.dialCode.root}${suffix}`,
         });
+        onChange &&
+          onChange(
+            {
+              ...country,
+              dialCode: `${country.dialCode.root}${suffix}`,
+            },
+            phoneNumber
+          );
         setisDropdownOpen(false);
       }}
     >
