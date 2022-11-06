@@ -1,10 +1,10 @@
+import { motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
-import ChevronDownSVG from "./icons/ChevronDownSVG";
-import { motion, AnimatePresence } from "framer-motion";
 import DropdownMenu from "./DropdownMenu";
+import ChevronDownSVG from "./icons/ChevronDownSVG";
 
 const Dropdown = () => {
   const { isDropdownOpen, setisDropdownOpen, selectedCountry } =
@@ -31,6 +31,7 @@ const Dropdown = () => {
       </div>
       {createPortal(
         <DropdownMenu
+          popperElement={popperElement}
           attributes={attributes}
           setPopperElement={setPopperElement}
           styles={styles}
