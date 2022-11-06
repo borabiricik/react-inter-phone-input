@@ -21,10 +21,11 @@ function App() {
           setonChangePhoneNumber(phoneNumber);
         }}
         containerProps={{
-          className: "border overflow-hidden rounded-md",
+          className: "border border-[#B5B5C3] overflow-hidden rounded-md",
         }}
         dropdownButtonProps={{
-          className: "bg-[#EFF4F7] space-x-[10px] rtl:space-x-reverse p-3",
+          className:
+            "bg-[#EFF4F7] space-x-[10px] rtl:space-x-reverse p-3 border-r border-[#B5B5C3]",
           placeholder: "Select Dial Code",
         }}
         flagProps={{ className: "w-4 h-4 rounded-full" }}

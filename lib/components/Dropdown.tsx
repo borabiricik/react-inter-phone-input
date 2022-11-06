@@ -26,7 +26,7 @@ const Dropdown = () => {
         name: "offset",
         enabled: true,
         options: {
-          offset: [0, 0],
+          offset: [0, 5],
         },
       },
     ],
