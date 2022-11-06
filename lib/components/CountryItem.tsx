@@ -35,7 +35,7 @@ const CountryItem = ({ country, suffix }: ICountryItemProps) => {
       <img
         src={country.flag}
         alt="Selected Country Flag"
-        className={classNames("w-4 h-4 object-cover", flagClassName)}
+        className={classNames("w-4 h-4 object-fill", flagClassName)}
         {...restFlagProps}
       />
       <span>{country.name}</span>
