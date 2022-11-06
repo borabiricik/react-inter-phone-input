@@ -12,6 +12,7 @@ export interface IPhoneInputContextProps {
 
 export interface ICountry {
     name: string
+    code: string
     dialCode: {
         root: string
         suffixes: string[]

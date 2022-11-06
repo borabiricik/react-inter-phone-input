@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import DropdownMenu from "./DropdownMenu";
 
 const Dropdown = () => {
-  const { countries, isDropdownOpen, setisDropdownOpen } =
+  const { isDropdownOpen, setisDropdownOpen, selectedCountry } =
     useContext(PhoneInputContext);
 
   const [referenceElement, setReferenceElement] = useState<any>(null);
@@ -21,9 +21,10 @@ const Dropdown = () => {
       <div
         ref={setReferenceElement}
         onClick={() => setisDropdownOpen(!isDropdownOpen)}
-        className="cursor-pointer flex items-center space-x-4 rtl:space-x-reverse"
+        className="cursor-pointer flex items-center space-x-4 rtl:space-x-reverse transition-all"
       >
-        <span>Select</span>
+        <span> {selectedCountry ? selectedCountry.name : "Select"}</span>
+
         <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }}>
           <ChevronDownSVG style={{ width: 12, height: 12 }} />
         </motion.div>

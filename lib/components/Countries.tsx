@@ -7,8 +7,8 @@ const Countries = () => {
   return (
     <>
       {countries.map((country) => {
-        return country.dialCode.suffixes?.map((suffix: string) => {
-          return <CountryItem country={country} suffix={suffix} />;
+        return country.dialCode.suffixes?.map((suffix: string, index) => {
+          return <CountryItem key={index} country={country} suffix={suffix} />;
         });
       })}
     </>
