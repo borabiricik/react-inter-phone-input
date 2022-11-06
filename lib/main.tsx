@@ -9,6 +9,7 @@ import {
 import Dropdown from "./components/Dropdown";
 import axios from "axios";
 import { PhoneInputContext } from "./context/PhoneInputContext";
+import _ from "lodash";
 
 const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
@@ -20,27 +21,21 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   useEffect(() => {
     if (!countries) {
       axios.get("https://restcountries.com/v3.1/all").then((res) => {
-        setinternalCounties(
-          res.data
-            .sort(function (a: ICountry, b: ICountry) {
-              if (a.name < b.name) {
-                return -1;
-              }
-              if (a.name > b.name) {
-                return 1;
-              }
-              return 0;
-            })
-            .map((country: any) => {
-              return {
-                name: country.name.common,
-                flag: country.flags.svg,
-                dialCode: {
-                  ...country.idd,
-                },
-              };
-            })
+        const formattedCountries = res.data.map((country: any) => {
+          return {
+            name: country.name.common,
+            flag: country.flags.svg,
+            dialCode: {
+              ...country.idd,
+            },
+          };
+        });
+        const orderedCountries = _.orderBy(
+          formattedCountries,
+          ["name"],
+          ["asc"]
         );
+        setinternalCounties(orderedCountries);
       });
     }
   }, []);

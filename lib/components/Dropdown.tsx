@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import ChevronDownSVG from "./icons/ChevronDownSVG";
 import { motion, AnimatePresence } from "framer-motion";
+import DropdownMenu from "./DropdownMenu";
 
 const Dropdown = () => {
   const { countries, isDropdownOpen, setisDropdownOpen } =
@@ -28,35 +29,11 @@ const Dropdown = () => {
         </motion.div>
       </div>
       {createPortal(
-        <AnimatePresence exitBeforeEnter>
-          {isDropdownOpen && (
-            <div
-              ref={setPopperElement}
-              style={styles.popper}
-              {...attributes.popper}
-            >
-              <motion.div
-                className="overflow-scroll max-h-[200px] flex flex-col scrollbar-hide"
-                initial={{ height: 0 }}
-                animate={{ height: "auto" }}
-                exit={{ height: 0 }}
-              >
-                {countries.map((country) => {
-                  console.log(country);
-                  return country.dialCode.suffixes?.map((suffix: string) => {
-                    return (
-                      <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                        <img src={country.flag} className="w-5 h-5" alt="" />
-                        <span>{country.name}</span>
-                        <span>{`${country.dialCode.root} ${suffix}`}</span>
-                      </div>
-                    );
-                  });
-                })}
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>,
+        <DropdownMenu
+          attributes={attributes}
+          setPopperElement={setPopperElement}
+          styles={styles}
+        />,
         document.body
       )}
     </>
