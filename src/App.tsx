@@ -40,6 +40,10 @@ function App() {
         dropdownProps={{
           className: "border border-[#B5B5C3] rounded-md space-y-2 p-2",
         }}
+        dropdownItemProps={{
+          className:
+            "hover:bg-blue-200 hover:text-blue-600 p-1 rounded-md transition-all",
+        }}
       />
 
       <div className="text-xl">

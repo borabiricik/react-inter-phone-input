@@ -10,12 +10,18 @@ const CountryItem = ({ country, suffix }: ICountryItemProps) => {
     onChange,
     phoneNumber,
     flagProps = {},
+    dropdownItemProps = {},
   } = useContext(PhoneInputContext);
 
   const { className: flagClassName = "", src, ...restFlagProps } = flagProps;
+  const { className: dropdownItemsClassName = "", ...restDropdownItemProps } =
+    dropdownItemProps;
   return (
     <div
-      className="flex items-center space-x-2 rtl:space-x-reverse cursor-pointer"
+      className={classNames(
+        "flex items-center space-x-2 rtl:space-x-reverse cursor-pointer",
+        dropdownItemsClassName
+      )}
       onClick={() => {
         setselectedCountry({
           ...country,

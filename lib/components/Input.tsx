@@ -24,7 +24,7 @@ const Input = () => {
         onInputChange && onInputChange(value);
         onChange && onChange(selectedCountry, value);
       }}
-      className={classNames("border-none flex-1", inputClassName)}
+      className={classNames("border-none flex-1 outline-none", inputClassName)}
     />
   );
 };

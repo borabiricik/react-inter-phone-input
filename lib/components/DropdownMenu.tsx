@@ -34,9 +34,13 @@ const DropdownMenu = ({
               "overflow-scroll max-h-[200px] flex flex-col scrollbar-hide bg-white",
               className
             )}
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
+            transition={{
+              duration: 0.2,
+              delay: 0,
+            }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             {...restDropdownProps}
           >
             <Countries />
