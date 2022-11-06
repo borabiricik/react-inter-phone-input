@@ -15,6 +15,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
     onCountryChange,
     containerProps = {},
     defaultCountryCode,
+    append,
   } = props;
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
     props.countries ? props.countries : []
@@ -99,6 +100,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
       >
         <Dropdown />
         <Input />
+        {append && append}
       </div>
     </PhoneInputContext.Provider>
   );

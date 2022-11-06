@@ -1,10 +1,11 @@
-import { DetailedHTMLProps, HTMLAttributes, ImgHTMLAttributes, InputHTMLAttributes } from "react"
+import { DetailedHTMLProps, HTMLAttributes, ImgHTMLAttributes, InputHTMLAttributes, ReactElement } from "react"
 
 export interface IPhoneInputProps {
     countries?: ICountry[]
     onChange?: (country: ISelectedCountry | null, phoneNumber: string) => void
     onCountryChange?: (country: ISelectedCountry) => void
     onInputChange?: (phoneNumber: string) => void
+    append?: ReactElement | string
     containerProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
     dropdownButtonProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
     flagProps?: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>

@@ -27,7 +27,7 @@ function App() {
         }}
         dropdownButtonProps={{
           className:
-            "bg-[#EFF4F7] space-x-[10px] rtl:space-x-reverse p-3 border-r border-[#B5B5C3]",
+            "bg-[#EFF4F7] space-x-[10px] rtl:space-x-reverse px-3 py-2 border-r border-[#B5B5C3]",
           placeholder: "Select Dial Code",
         }}
         flagProps={{ className: "w-4 h-4 rounded-full" }}
@@ -44,6 +44,16 @@ function App() {
           className:
             "hover:bg-blue-200 hover:text-blue-600 p-1 rounded-md transition-all",
         }}
+        append={
+          <div className="flex items-center px-1">
+            <button
+              onClick={() => alert("example prepend action")}
+              className="px-3 py-1 text-sm border-blue-400 border rounded-full text-blue-400"
+            >
+              Verify
+            </button>
+          </div>
+        }
       />
 
       <div className="text-xl">
