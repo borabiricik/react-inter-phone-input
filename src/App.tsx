@@ -37,6 +37,9 @@ function App() {
           className: "px-3",
         }}
         defaultCountryCode={defaultCountry}
+        dropdownProps={{
+          className: "border border-[#B5B5C3] rounded-md space-y-2 p-2",
+        }}
       />
 
       <div className="text-xl">

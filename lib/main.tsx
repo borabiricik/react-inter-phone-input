@@ -1,6 +1,6 @@
 import axios from "axios";
 import _ from "lodash";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import { PhoneInputContext } from "./context/PhoneInputContext";
@@ -30,7 +30,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => setisDropdownOpen(false));
-  useEffect(() => {
+  useMemo(() => {
     if (!countries) {
       axios
         .get("https://restcountries.com/v3.1/all?fields=name,cca2,flags,idd")

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { IDropdownMenuProps } from "lib/types/Dropdown";
+import { classNames } from "lib/utils/classNames";
 import { useContext } from "react";
 import Countries from "./Countries";
 
@@ -9,7 +10,17 @@ const DropdownMenu = ({
   styles,
   attributes,
 }: IDropdownMenuProps) => {
-  const { isDropdownOpen } = useContext(PhoneInputContext);
+  const { isDropdownOpen, dropdownProps = {} } = useContext(PhoneInputContext);
+  const {
+    className = "",
+    onAnimationEnd,
+    onAnimationStart,
+    onDragStart,
+    onDragEnd,
+    onDrag,
+    ref,
+    ...restDropdownProps
+  } = dropdownProps;
   return (
     <AnimatePresence>
       {isDropdownOpen && (
@@ -19,10 +30,14 @@ const DropdownMenu = ({
           {...attributes.popper}
         >
           <motion.div
-            className="overflow-scroll max-h-[200px] flex flex-col scrollbar-hide bg-white"
+            className={classNames(
+              "overflow-scroll max-h-[200px] flex flex-col scrollbar-hide bg-white",
+              className
+            )}
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
+            {...restDropdownProps}
           >
             <Countries />
           </motion.div>

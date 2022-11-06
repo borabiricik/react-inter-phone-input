@@ -10,6 +10,7 @@ export interface IPhoneInputProps {
     flagProps?: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>
     inputProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
     defaultCountryCode?: string
+    dropdownProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 }
 
 export interface IPhoneInputContextProps extends IPhoneInputProps {
