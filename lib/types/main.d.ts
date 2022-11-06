@@ -5,6 +5,7 @@ export interface IPhoneInputProps {
     onChange?: (country: ISelectedCountry | null, phoneNumber: string) => void
     onCountryChange?: (country: ISelectedCountry) => void
     onInputChange?: (phoneNumber: string) => void
+    isCountrySelectEnabled?: boolean
     append?: ReactElement | string
     containerProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
     dropdownButtonProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
@@ -13,6 +14,7 @@ export interface IPhoneInputProps {
     defaultCountryCode?: string
     dropdownProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
     dropdownItemProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+    isSearchable?: boolean
 }
 
 export interface IPhoneInputContextProps extends IPhoneInputProps {

@@ -10,8 +10,9 @@ function App() {
   const [onChangeCountry, setonChangeCountry] =
     useState<ISelectedCountry | null>(null);
   const [onChangePhoneNumber, setonChangePhoneNumber] = useState("");
-
   const [defaultCountry, setdefaultCountry] = useState("tr");
+  const [isCountrySelectedEnabled, setisCountrySelectedEnabled] =
+    useState(true);
 
   return (
     <div className="p-4">
@@ -54,6 +55,7 @@ function App() {
             </button>
           </div>
         }
+        isCountrySelectEnabled={isCountrySelectedEnabled}
       />
 
       <div className="text-xl">
@@ -72,6 +74,11 @@ function App() {
         onClick={() => setdefaultCountry(defaultCountry === "us" ? "tr" : "us")}
       >
         Toggle Country
+      </button>
+      <button
+        onClick={() => setisCountrySelectedEnabled(!isCountrySelectedEnabled)}
+      >
+        Toggle Dropdown Enabled
       </button>
     </div>
   );

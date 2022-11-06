@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
-import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { classNames } from "lib/utils/classNames";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import DropdownMenu from "./DropdownMenu";
@@ -15,6 +14,7 @@ const Dropdown = () => {
     selectedCountry,
     dropdownButtonProps = {},
     flagProps = {},
+    isCountrySelectEnabled = true,
   } = useContext(PhoneInputContext);
 
   const [referenceElement, setReferenceElement] = useState<any>(null);
@@ -37,6 +37,7 @@ const Dropdown = () => {
     ref = null,
     onClick,
     placeholder,
+
     ...restDropdownButtonProps
   } = dropdownButtonProps;
 
@@ -48,7 +49,9 @@ const Dropdown = () => {
         {...restDropdownButtonProps}
         ref={setReferenceElement}
         onClick={(e) => {
-          setisDropdownOpen(!isDropdownOpen);
+          if (isCountrySelectEnabled) {
+            setisDropdownOpen(!isDropdownOpen);
+          }
           onClick && onClick(e);
         }}
         className={classNames(
@@ -72,9 +75,11 @@ const Dropdown = () => {
           )}
         </div>
 
-        <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }}>
-          <ChevronDownSVG style={{ width: 12, height: 12 }} />
-        </motion.div>
+        {isCountrySelectEnabled && (
+          <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }}>
+            <ChevronDownSVG style={{ width: 12, height: 12 }} />
+          </motion.div>
+        )}
       </div>
       {createPortal(
         <DropdownMenu
