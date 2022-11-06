@@ -10,14 +10,21 @@ import { ICountry, IPhoneInputProps, ISelectedCountry } from "./types/main";
 import { classNames } from "./utils/classNames";
 
 const PhoneInput = ({ ...props }: IPhoneInputProps) => {
+  const {
+    countries,
+    onCountryChange,
+    containerProps = {},
+    defaultCountryCode,
+  } = props;
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
     props.countries ? props.countries : []
   );
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
+
   const [selectedCountry, setselectedCountry] =
     useState<ISelectedCountry | null>(null);
   const [phoneNumber, setphoneNumber] = useState("");
-  const { countries, onCountryChange, containerProps = {} } = props;
+
   const { className: containerClassName = "", ...restContainerProps } =
     containerProps;
 
@@ -57,6 +64,20 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         });
     }
   }, [selectedCountry]);
+
+  useEffect(() => {
+    if (defaultCountryCode) {
+      const foundCountry = internalCounties.find(
+        (country) => country.code.toLowerCase() === defaultCountryCode
+      );
+      if (foundCountry) {
+        setselectedCountry({
+          ...foundCountry,
+          dialCode: `${foundCountry?.dialCode.root}${foundCountry.dialCode.suffixes[0]}`,
+        });
+      }
+    }
+  }, [defaultCountryCode, internalCounties]);
 
   return (
     <PhoneInputContext.Provider
