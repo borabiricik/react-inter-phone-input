@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
-import { useContext, useState } from "react";
+import { useOutsideClick } from "lib/hooks/useOutsideClick";
+import { useContext, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import DropdownMenu from "./DropdownMenu";
@@ -16,8 +17,12 @@ const Dropdown = () => {
     placement: "bottom",
   });
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(containerRef, () => setisDropdownOpen(false));
+
   return (
-    <>
+    <div ref={containerRef}>
       <div
         ref={setReferenceElement}
         onClick={() => setisDropdownOpen(!isDropdownOpen)}
@@ -38,7 +43,7 @@ const Dropdown = () => {
         />,
         document.body
       )}
-    </>
+    </div>
   );
 };
 

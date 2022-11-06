@@ -13,8 +13,6 @@ const DropdownMenu = ({
   popperElement,
 }: IDropdownMenuProps) => {
   const { isDropdownOpen, setisDropdownOpen } = useContext(PhoneInputContext);
-  const menuRef = useRef<any>();
-  useOutsideClick(menuRef, () => setisDropdownOpen(false));
   return (
     <AnimatePresence>
       {isDropdownOpen && (
@@ -24,7 +22,6 @@ const DropdownMenu = ({
           {...attributes.popper}
         >
           <motion.div
-            ref={menuRef}
             className="overflow-scroll max-h-[200px] flex flex-col scrollbar-hide"
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
