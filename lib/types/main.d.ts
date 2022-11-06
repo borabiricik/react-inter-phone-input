@@ -14,7 +14,9 @@ export interface IPhoneInputProps {
     defaultCountryCode?: string
     dropdownProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
     dropdownItemProps?: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+    searchInputProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
     isSearchable?: boolean
+    noCountiesFoundText?: string
 }
 
 export interface IPhoneInputContextProps extends IPhoneInputProps {
@@ -27,6 +29,8 @@ export interface IPhoneInputContextProps extends IPhoneInputProps {
     setphoneNumber: Function
     filteredCountries: ICountry[]
     setfilteredCountries: Function
+    searchValue: string
+    setsearchValue: Function
 }
 
 export interface ICountry {

@@ -11,4 +11,6 @@ export const PhoneInputContext = createContext<IPhoneInputContextProps>({
   setphoneNumber: () => {},
   filteredCountries: [],
   setfilteredCountries: () => {},
+  searchValue: "",
+  setsearchValue: () => {},
 });

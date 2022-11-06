@@ -25,6 +25,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [selectedCountry, setselectedCountry] =
     useState<ISelectedCountry | null>(null);
   const [phoneNumber, setphoneNumber] = useState("");
+  const [inputValue, setinputValue] = useState("");
 
   const { className: containerClassName = "", ...restContainerProps } =
     containerProps;
@@ -91,6 +92,8 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setphoneNumber,
         filteredCountries,
         setfilteredCountries,
+        searchValue: inputValue,
+        setsearchValue: setinputValue,
       }}
     >
       <div
