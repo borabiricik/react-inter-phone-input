@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
+import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { classNames } from "lib/utils/classNames";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import DropdownMenu from "./DropdownMenu";
@@ -44,7 +45,7 @@ const Dropdown = () => {
   const { className: flagClassName = "", src, ...restFlagProps } = flagProps;
 
   return (
-    <>
+    <div>
       <div
         {...restDropdownButtonProps}
         ref={setReferenceElement}
@@ -54,6 +55,7 @@ const Dropdown = () => {
           }
           onClick && onClick(e);
         }}
+        data-exception="true"
         className={classNames(
           "cursor-pointer flex items-center rtl:space-x-reverse",
           dropdownButtonClassName
@@ -82,15 +84,17 @@ const Dropdown = () => {
         )}
       </div>
       {createPortal(
-        <DropdownMenu
-          popperElement={popperElement}
-          attributes={attributes}
-          setPopperElement={setPopperElement}
-          styles={styles}
-        />,
+        <div>
+          <DropdownMenu
+            popperElement={popperElement}
+            attributes={attributes}
+            setPopperElement={setPopperElement}
+            styles={styles}
+          />
+        </div>,
         document.body
       )}
-    </>
+    </div>
   );
 };
 

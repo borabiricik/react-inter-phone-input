@@ -1,10 +1,9 @@
 import axios from "axios";
 import _ from "lodash";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import { PhoneInputContext } from "./context/PhoneInputContext";
-import { useOutsideClick } from "./hooks/useOutsideClick";
 import "./styles/global.css";
 import { ICountry, IPhoneInputProps, ISelectedCountry } from "./types/main";
 import { classNames } from "./utils/classNames";
@@ -29,8 +28,6 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const { className: containerClassName = "", ...restContainerProps } =
     containerProps;
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(containerRef, () => setisDropdownOpen(false));
   useMemo(() => {
     if (!countries) {
       axios
@@ -95,7 +92,6 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
     >
       <div
         {...restContainerProps}
-        ref={containerRef}
         className={classNames("flex items-stretch", containerClassName)}
       >
         <Dropdown />
