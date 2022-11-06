@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "Will Add",
   "license": "MIT",
-  "main": "./dist/react-intl-phone-input.umd.js",
-  "module": "./dist/react-intl-phone-input.es.js",
+  "main": "./dist/react-inter-phone-input.umd.js",
+  "module": "./dist/react-inter-phone-input.es.js",
   "types": "./dist/lib/main.d.ts",
   "scripts": {
     "dev": "vite",

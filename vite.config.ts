@@ -26,7 +26,7 @@ export default defineConfig(configEnv => ({
     lib: {
       entry: resolve('lib', 'main.tsx'),
       name: 'ReactFeatureFlag',
-      fileName: (format) => `react-intl-phone-input.${format}.js`,
+      fileName: (format) => `react-inter-phone-input.${format}.js`,
     },
     rollupOptions: {
       external: ['react'],
