@@ -1,185 +1,146 @@
-<!-- <h1 align="center">Welcome to boilerplate-lib-vite-react 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/panhavsilva/boilerplate-lib-vite-react#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="https://github.com/panhavsilva/boilerplate-lib-vite-react/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
-  <a href="https://github.com/panhavsilva/boilerplate-lib-vite-react/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/panhavsilva/boilerplate-lib-vite-react" />
-  </a>
-</p>
+<!-- Improved compatibility of back to top link: See: https://github.com/borabiricik/react-inter-phone-input/pull/73 -->
 
-> Boilerplate to create library with Vite, Typescript and React.js
+<a name="readme-top"></a>
 
-<br />
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## :black_nib: Author
+<!-- PROJECT LOGO -->
+<br /> 
+<div align="center">
+  <!-- <a href="https://github.com/borabiricik/react-inter-phone-input">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
+  <h1 align="center">🚀 react-inter-phone-input 🚀</h3>
+  <h2 align="center">React International Phone Input</h2>
+  <h4 align='center'>✨ 95% Customizable International Phone Number Input Component ✨</h3>
 
-:bust_in_silhouette: **Pâmela Vieira da Silva - @panhavsilva**
+  <p align="center">
+    <!-- <a href="https://github.com/borabiricik/react-inter-phone-input"><strong>Explore the docs »</strong></a> -->
+    <br />
+    <a href="https://github.com/borabiricik/react-inter-phone-input">View Demo</a>
+    ·
+    <a href="https://github.com/borabiricik/react-inter-phone-input/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/borabiricik/react-inter-phone-input/issues">Request Feature</a>
+  </p>
+</div>
 
-* Github: [@panhavsilva](https://github.com/panhavsilva)
+<!-- GETTING STARTED -->
 
----
+## Getting Started
 
-## Install dependencies
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Installation
 
 ```sh
-yarn
-```
-## Run the dev server
-```sh
-yarn dev
+## npm
+npm install react-inter-phone-input
 
-#dev server running at: http://localhost:3000/
+## yarn
+yarn add react-inter-phone-input
 ```
 
-##
-## Scripts
-| Script                        | Description                                                    |
-| ----------------------------- | -------------------------------------------------------------  |
-| `yarn dev`                    | Run dev server                                                 |
-| `yarn build`                  | Generates production build                                     |
-| `yarn lint`                   | Run linter                                                     |
-| `yarn lint:fix`               | Fix lint errors                                                |
-| `yarn type-check`             | TS type checking                                               |
-| `yarn ci`                     | Run lint, type checking and tests (meant to be used in a CI)   |
-| `yarn prepare`                | Not supposed to be manually used. It's just to configure husky |
+<!-- USAGE EXAMPLES -->
 
-## :rocket: Usage
-  ### [Creating your token for  publish in to NPM](https://docs.npmjs.com/creating-and-viewing-access-tokens)
-  1. In the upper right corner of the page, click your profile picture, then click "Access Tokens". <br />
-  <div style="text-align:center">
-    <img src="./assets/access-tokens-npm.png" />
-  </div>
-  2. Click "Generate New Token". <br />
-  <div style="text-align:center">
-    <img src="./assets/generate-new-token-npm.png" />
-  </div>
-  3. Name your token "NPM_TOKEN". <br />
-  4. Select the type of access token "Automation". <br />
-  5. Click "Generate Token". <br />
-  <div style="text-align:center">
-    <img src="./assets/new-access-token-npm.png" />
-  </div>
-  6. Copy the token from the top of page to include in Github secrets.
+## Usage
 
-  <br />
+This is a basic example of `<PhoneInput />` component
 
-  ### Configuring your secrets on Github
-  1. On GitHub, navigate to the main page of the repository.
-  2. Under your repository name, click on the "Settings" tab.
-  3. In the left sidebar, click "Secrets" after click "Actions".
-  4. Click on button "New repositury secret" on the right.
-  ![](assets/create-secret.png)
-  5. Type NPM_TOKEN in the "Name" input box.
-  6. Type the value for your secret.
-  7. Click "Add secret".
-  ![](assets/add-secret-name-value.png)
+```javascript
+import { ISelectedCountry } from 'lib/types/main'
+import { useState } from 'react'
+import PhoneInput from 'react-inter-phone-input'
 
-  ### Generate tag version on Github
-  1. On GitHub, navigate to the main page of the repository.
-  2. Under your repository name, click on the "Actions" tab.
-  3. In the left sidebar, click "Generate tag version".
-  4. Click on button "Run workflow".
-  5. Select branch to use generate tag version workflow and select version (patch, minor or major).
-  ![](assets/generate-tag-version.png)
-  6. Click on button "Run workflow".
-  <div style="text-align:center">
-    <img src="./assets/run-workflow.png" />
-  </div>
+function App () {
+  // <PhoneInput /> component can be used both controlled or uncontrolled
+  const [selectedCountry, setselectedCountry] = useState<ISelectedCountry | null>(null)
+  const [phoneNumber, setphoneNumber] = useState('')
+  const [isCountrySelectedEnabled, setisCountrySelectedEnabled] = useState(true)
 
-  ### [Create Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
-  1. On GitHub, navigate to the main page of the repository.
-  2. To the right of the list of files, click "Releases".
-  <div style="text-align:center">
-    <img src="./assets/access-releases.png" />
-  </div>
-  3. Click on button "Create a new release" if your first realese or on button "Draft a new release".
-  <div style="text-align:center">
-    <img src="./assets/create-new-release.png" />
-    <img src="./assets/draft-new-release.png" />
-  </div>
-  4. Click "Choose a tag", select a version number for your release. <br />
-  5. Click "Auto-generate release notes". <br />
-  6. Click on button "Publish release". <br />
-  <div style="text-align:center">
-    <img src="./assets/create-release.png" />
-  </div>
+  return (
+      <PhoneInput
+        containerProps={{ ...}}
+        dropdownButtonProps={{ ...}}
+        flagProps={{ ... }}
+        inputProps={{ ...}}
+        defaultCountryCode={'tr'}
+        dropdownProps={{ ...}}
+        dropdownItemProps={{ ...}}
+        append={<p>Append something Here</p>}
+        isCountrySelectEnabled={isCountrySelectedEnabled}
+        onInputChange={(value) => setphoneNumber(value)}
+        onCountryChange={(country) => setselectedCountry(country)}
+        onChange={(country, phoneNumber) => {
+          //This function is triggering on both country and input change
+        }}
+      />
+  )
+}
 
-  ### Change in your project
-  - In to folder lib:
-    + Change main.tsx to name of your lib.tsx
-    + Include code of your lib here.
-  - In to package.json:
-    ```json
-      {
-        "name": "", //@+"your username NPM"/"name of your lib" without quotes and plus signal
-        "description": "", //description of your lib
-        "main": "./dist/name of your lib.umd.js", //put the name of your lib.umd.js
-        "module": "./dist/name of your lib.es.js", //put the name of your lib.es.js
-        "types": "./dist/lib/main.d.ts", // put the name of your lib.d.ts
-        "exports": {
-          ".": {
-            "import": "./dist/name of your lib.es.js", // put the name of your lib.es.js
-            "require": "./dist/name of your lib.umd.js" // put the name of your lib.umd.js
-          }
-        },
-        "repository": {
-          "type": "git",
-          "url": "" //url of repository of your lib on Github
-        },
-        "keywords": [], //include keywords searched in NPM relative to your lib
-        "author": "", //your name
-        "bugs": {
-          "url": "https://github.com/your username/your repository/issues" //url of repository of your lib on Github/issues
-        },
-        "homepage": "https://github.com/your username/your repository#readme" //url of repository of your lib on Github#readme
-      }
-    ```
-  - In to tsconfig.node.json:
-    ```json
-      {
-        "paths": {
-          "@username NPM/name of your lib": [ "./lib/name of your lib.tsx" ]
-        } //put @ + your username NPM/name of your lib: put the name of your lib
-      }
-    ```
-  - In to vite.config.ts:
-    ```typescript
-      build: {
-        lib: {
-          entry: resolve('lib', 'main.tsx'),
-          name: 'ReactFeatureFlag',
-          fileName: (format) => `name of your lib.${format}.js`, //put the name of your lib
-        },
-        rollupOptions: {
-          external: ['react'],
-        },
-      },
-    ```
-  - In to src/ app.tsx
-    + Import your lib from ./lib.
-    + Include your lib in the return function app.
-  - Assets folder can be deleted
-  - Change README.md
+export default App
+```
 
+<!-- ROADMAP -->
 
----
-## :handshake: Contributing
+<!-- ## Roadmap
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/panhavsilva/boilerplate-lib-vite-react/issues). You can also take a look at the [contributing guide](https://github.com/panhavsilva/boilerplate-lib-vite-react/blob/master/CONTRIBUTING.md).
+- [x] Add Changelog
+- [x] Add back to top links
+- [ ] Add Additional Templates w/ Examples
+- [ ] Add "components" document to easily copy & paste sections of the readme
+- [ ] Multi-language Support
+  - [ ] Chinese
+  - [ ] Spanish
 
----
-## ✨ Show your support
+See the [open issues](https://github.com/borabiricik/react-inter-phone-input/issues) for a full list of proposed features (and known issues).
 
-Give a ⭐️ if this project helped you!
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
-## 📝 License
+<!-- CONTRIBUTING -->
 
-Copyright © current [Pâmela Vieira da Silva - @panhavsilva](https://github.com/panhavsilva).<br />
-This project is [MIT](https://github.com/panhavsilva/boilerplate-lib-vite-react/blob/master/LICENSE) licensed. -->
+## Contributing
 
-will add
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Your Name - [@biricik_js](https://twitter.com/biricik_js) - email@example.com
+
+Project Link: [https://github.com/borabiricik/react-inter-phone-input](https://github.com/borabiricik/react-inter-phone-input)
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/borabiricik/react-inter-phone-input/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/borabiricik/react-inter-phone-input/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/borabiricik/react-inter-phone-input/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/borabiricik/react-inter-phone-input/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/borabiricik/react-inter-phone-input/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/bora-biricik-6b16181b0/
