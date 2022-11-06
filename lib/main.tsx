@@ -6,6 +6,7 @@ import Input from "./components/Input";
 import { PhoneInputContext } from "./context/PhoneInputContext";
 import "./styles/global.css";
 import { ICountry, IPhoneInputProps, ISelectedCountry } from "./types/main";
+import { classNames } from "./utils/classNames";
 
 const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [internalCounties, setinternalCounties] = useState<ICountry[]>(
@@ -15,7 +16,9 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [selectedCountry, setselectedCountry] =
     useState<ISelectedCountry | null>(null);
   const [phoneNumber, setphoneNumber] = useState("");
-  const { countries, onCountryChange } = props;
+  const { countries, onCountryChange, containerProps = {} } = props;
+  const { className: containerClassName = "", ...restContainerProps } =
+    containerProps;
   useEffect(() => {
     if (!countries) {
       axios
@@ -64,7 +67,10 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setphoneNumber,
       }}
     >
-      <div className="flex items-stretch">
+      <div
+        {...restContainerProps}
+        className={classNames("flex items-stretch", containerClassName)}
+      >
         <Dropdown />
         <Input />
       </div>
