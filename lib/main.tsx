@@ -64,7 +64,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setphoneNumber,
       }}
     >
-      <div className="rounded-[6px] flex items-stretch">
+      <div className="flex items-stretch">
         <Dropdown />
         <Input />
       </div>
