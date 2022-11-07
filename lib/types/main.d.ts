@@ -47,3 +47,5 @@ export interface ISelectedCountry extends Omit<ICountry, 'dialCode'> {
     dialCode: string
 
 }
+
+declare module 'react-inter-phone-input'
