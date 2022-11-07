@@ -15,7 +15,7 @@ export default defineConfig(configEnv => ({
       linters: [new EsLinter({ configEnv })],
     }),
     dts({
-      include: ['./lib/**/*.{ts,tsx,d.ts}'],
+      include: ['./lib/**/*.{ts,tsx}'],
       insertTypesEntry: true,
       beforeWriteFile: (filePath, content) => ({
         filePath: filePath.replace('/lib', ''),
@@ -24,6 +24,7 @@ export default defineConfig(configEnv => ({
     }),
   ],
   build: {
+    sourcemap: true,
     lib: {
       entry: resolve('lib', 'main.tsx'),
       name: 'ReactFeatureFlag',
