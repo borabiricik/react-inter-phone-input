@@ -17,6 +17,7 @@ const DropdownMenu = ({
     dropdownProps = {},
     isSearchable = true,
     setisDropdownOpen,
+    dropdownMenuContainerProps = {},
   } = useContext(PhoneInputContext);
   const {
     className = "",
@@ -28,6 +29,11 @@ const DropdownMenu = ({
     ref,
     ...restDropdownProps
   } = dropdownProps;
+  const {
+    className: dropdownMenuContainerClassName = "",
+    style,
+    ref: trashRef,
+  } = dropdownMenuContainerProps;
   const containerRef = useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => {
     if (isDropdownOpen) {
@@ -41,6 +47,7 @@ const DropdownMenu = ({
           ref={setPopperElement}
           style={styles.popper}
           data-target="dropdown-menu"
+          className={classNames(dropdownMenuContainerClassName)}
           {...attributes.popper}
         >
           <motion.div

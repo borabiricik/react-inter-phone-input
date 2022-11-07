@@ -17,6 +17,7 @@ export interface IPhoneInputProps {
     searchInputProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
     isSearchable?: boolean
     noCountiesFoundText?: string
+    dropdownMenuContainerProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 }
 
 export interface IPhoneInputContextProps extends IPhoneInputProps {
