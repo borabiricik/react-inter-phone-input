@@ -11,11 +11,11 @@ export default defineConfig(configEnv => ({
     react(),
     tsConfigPaths(),
     linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
+      include: ['./src/**/*.{ts,tsx}'],
       linters: [new EsLinter({ configEnv })],
     }),
     dts({
-      include: ['lib/main.tsx'],
+      include: ['./lib/**/*.{ts,tsx,d.ts}'],
       insertTypesEntry: true,
       beforeWriteFile: (filePath, content) => ({
         filePath: filePath.replace('/lib', ''),
