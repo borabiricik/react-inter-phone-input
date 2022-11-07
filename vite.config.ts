@@ -6,28 +6,23 @@ import dts from 'vite-plugin-dts'
 import { EsLinter, linterPlugin } from 'vite-plugin-linter'
 
 // https://vitejs.dev/config/
-export default defineConfig(configEnv => ({
+export default defineConfig((configEnv) => ({
   plugins: [
     react(),
     tsConfigPaths(),
     linterPlugin({
-      include: ['./src/**/*.{ts,tsx}'],
+      include: ['./src}/**/*.{ts,tsx}'],
       linters: [new EsLinter({ configEnv })],
     }),
     dts({
-      include: ['./lib/**/*.{ts,tsx}'],
-      insertTypesEntry: true,
-      beforeWriteFile: (filePath, content) => ({
-        filePath: filePath.replace('/lib', ''),
-        content,
-      }),
+      include: ['lib/types/'],
     }),
   ],
   build: {
-    sourcemap: true,
     lib: {
-      entry: resolve('lib', 'main.tsx'),
-      name: 'ReactFeatureFlag',
+      entry: resolve('lib', 'index.ts'),
+      name: 'ReactInterPhoneInput',
+      formats: ['es', 'umd'],
       fileName: (format) => `react-inter-phone-input.${format}.js`,
     },
     rollupOptions: {
