@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "./dist/react-inter-phone-input.umd.js",
   "module": "./dist/react-inter-phone-input.es.js",
-  "types": "./dist/lib/main.d.ts",
+  "types": "./dist/types/main.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
