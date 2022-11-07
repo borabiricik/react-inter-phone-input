@@ -15,8 +15,6 @@ export default defineConfig(configEnv => ({
       linters: [new EsLinter({ configEnv })],
     }),
     dts({
-      include: ['lib/main.tsx'],
-      insertTypesEntry: true,
       beforeWriteFile: (filePath, content) => ({
         filePath: filePath.replace('/lib', ''),
         content,
