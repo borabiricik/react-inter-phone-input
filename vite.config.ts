@@ -22,7 +22,7 @@ export default defineConfig((configEnv) => ({
     lib: {
       entry: resolve('lib', 'index.ts'),
       name: 'ReactInterPhoneInput',
-      formats: ['es', 'umd'],
+      formats: ['es', 'umd', 'cjs'],
       fileName: (format) => `react-inter-phone-input.${format}.js`,
     },
     rollupOptions: {
