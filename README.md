@@ -57,6 +57,7 @@ This is a basic example of `<PhoneInput />` component
 import { ISelectedCountry } from 'lib/types/main'
 import { useState } from 'react'
 import PhoneInput from 'react-inter-phone-input'
+//const PhoneInput = dynamic(() => import("react-inter-phone-input"), { ssr: false }); // NextJS Usage
 import { ICountry } from "react-inter-phone-input/dist/types/main"; // For TS Support
 
 function App () {
