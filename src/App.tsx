@@ -1,6 +1,6 @@
 import { ISelectedCountry } from "lib/types/main";
 import { useEffect, useState } from "react";
-import PhoneInput from "react-inter-phone-input";
+import { PhoneInput } from "react-inter-phone-input";
 import "./app-style.css";
 
 function App() {

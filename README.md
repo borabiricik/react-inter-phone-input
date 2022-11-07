@@ -56,7 +56,7 @@ This is a basic example of `<PhoneInput />` component
 ```javascript
 import { ISelectedCountry } from 'lib/types/main'
 import { useState } from 'react'
-import PhoneInput from 'react-inter-phone-input'
+import { PhoneInput } from 'react-inter-phone-input'
 
 function App () {
   // <PhoneInput /> component can be used both controlled or uncontrolled
