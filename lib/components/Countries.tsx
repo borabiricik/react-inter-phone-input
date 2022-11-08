@@ -11,7 +11,6 @@ const Countries = () => {
         ? filteredCountries
         : null
       : countries;
-  console.log(filteredCountries);
   return (
     <>
       {internalCountries ? (
