@@ -66,10 +66,6 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   }, [selectedCountry]);
 
   useEffect(() => {
-    props.onChange && props.onChange(selectedCountry, phoneNumber);
-  }, [selectedCountry, inputValue]);
-
-  useEffect(() => {
     if (defaultCountryCode) {
       const foundCountry = internalCounties.find(
         (country) => country.code.toLowerCase() === defaultCountryCode
