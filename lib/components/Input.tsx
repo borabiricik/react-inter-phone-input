@@ -1,6 +1,7 @@
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { classNames } from "lib/utils/classNames";
 import { useContext } from "react";
+import MaskedInput from "react-text-mask";
 
 const Input = () => {
   const {
@@ -13,10 +14,25 @@ const Input = () => {
   const { inputProps = {} } = useContext(PhoneInputContext);
   const { className: inputClassName = "", value, placeholder } = inputProps;
   return (
-    <input
-      value={value ? (value as string) : phoneNumber}
+    <MaskedInput
+      mask={[
+        "(",
+        /[1-9]/,
+        /\d/,
+        /\d/,
+        ")",
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+      ]}
+      value={value ? (value as string) : undefined}
       placeholder={placeholder}
-      type="number"
       onChange={(e) => {
         setphoneNumber(value);
         onInputChange && onInputChange(e.target.value);
