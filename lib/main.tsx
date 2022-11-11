@@ -30,7 +30,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const { className: containerClassName = "", ...restContainerProps } =
     containerProps;
 
-  useMemo(() => {
+  useEffect(() => {
     if (!countries) {
       axios
         .get("https://restcountries.com/v3.1/all?fields=name,cca2,flags,idd")
@@ -54,16 +54,6 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         });
     }
   }, []);
-
-  useEffect(() => {
-    if (selectedCountry) {
-      onCountryChange &&
-        onCountryChange({
-          ...selectedCountry,
-          dialCode: `${selectedCountry.dialCode}`,
-        });
-    }
-  }, [selectedCountry]);
 
   useEffect(() => {
     if (defaultCountryCode) {

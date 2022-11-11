@@ -1,7 +1,6 @@
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { classNames } from "lib/utils/classNames";
 import { useContext } from "react";
-import { createDefaultMaskGenerator, MaskedInput } from "react-hook-mask";
 
 const Input = () => {
   const {
@@ -11,18 +10,17 @@ const Input = () => {
     onChange,
     selectedCountry,
   } = useContext(PhoneInputContext);
-  const maskGenerator = createDefaultMaskGenerator("999 999 999999");
   const { inputProps = {} } = useContext(PhoneInputContext);
   const { className: inputClassName = "", value, placeholder } = inputProps;
   return (
-    <MaskedInput
+    <input
       value={value ? (value as string) : phoneNumber}
       placeholder={placeholder}
-      maskGenerator={maskGenerator}
-      onChange={(value) => {
+      type="number"
+      onChange={(e) => {
         setphoneNumber(value);
-        onInputChange && onInputChange(value);
-        onChange && onChange(selectedCountry, value);
+        onInputChange && onInputChange(e.target.value);
+        onChange && onChange(selectedCountry, e.target.value);
       }}
       className={classNames("border-none flex-1 outline-none", inputClassName)}
     />
