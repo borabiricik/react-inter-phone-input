@@ -4,8 +4,21 @@ import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { IDropdownMenuProps } from "lib/types/Dropdown";
 import { classNames } from "lib/utils/classNames";
 import { useContext, useRef } from "react";
+import styled from "styled-components";
 import Countries from "./Countries";
 import Search from "./Search";
+
+const DropdownMenuContainer = styled(motion.div)`
+  overflow: scroll;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+`;
 
 const DropdownMenu = ({
   setPopperElement,
@@ -50,11 +63,8 @@ const DropdownMenu = ({
           className={classNames(dropdownMenuContainerClassName)}
           {...attributes.popper}
         >
-          <motion.div
-            className={classNames(
-              "overflow-scroll max-h-[200px] flex flex-col scrollbar-hide bg-white",
-              className
-            )}
+          <DropdownMenuContainer
+            className={classNames(className)}
             transition={{
               duration: 0.2,
               delay: 0,
@@ -67,7 +77,7 @@ const DropdownMenu = ({
           >
             {isSearchable && <Search />}
             <Countries />
-          </motion.div>
+          </DropdownMenuContainer>
         </div>
       )}
     </AnimatePresence>

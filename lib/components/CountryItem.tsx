@@ -2,6 +2,20 @@ import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { ICountryItemProps } from "lib/types/Dropdown";
 import { classNames } from "lib/utils/classNames";
 import { useContext } from "react";
+import styled from "styled-components";
+
+const CountryItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+`;
+
+const CountryFlag = styled.img`
+  width: 1rem;
+  height: 1rem;
+  object-fit: fill;
+`;
 
 const CountryItem = ({ country, suffix }: ICountryItemProps) => {
   const {
@@ -13,15 +27,17 @@ const CountryItem = ({ country, suffix }: ICountryItemProps) => {
     dropdownItemProps = {},
   } = useContext(PhoneInputContext);
 
-  const { className: flagClassName = "", src, ...restFlagProps } = flagProps;
+  const {
+    className: flagClassName = "",
+    src,
+    ref,
+    ...restFlagProps
+  } = flagProps;
   const { className: dropdownItemsClassName = "", ...restDropdownItemProps } =
     dropdownItemProps;
   return (
-    <div
-      className={classNames(
-        "flex items-center space-x-2 rtl:space-x-reverse cursor-pointer",
-        dropdownItemsClassName
-      )}
+    <CountryItemContainer
+      className={classNames(dropdownItemsClassName)}
       onClick={() => {
         setselectedCountry({
           ...country,
@@ -38,15 +54,15 @@ const CountryItem = ({ country, suffix }: ICountryItemProps) => {
         setisDropdownOpen(false);
       }}
     >
-      <img
+      <CountryFlag
         src={country.flag}
         alt="Selected Country Flag"
-        className={classNames("w-4 h-4 object-fill", flagClassName)}
+        className={classNames(flagClassName)}
         {...restFlagProps}
       />
       <span>{country.name}</span>
       <span>{`${country.dialCode.root}${suffix}`}</span>
-    </div>
+    </CountryItemContainer>
   );
 };
 

@@ -2,6 +2,23 @@ import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { classNames } from "lib/utils/classNames";
 import _ from "lodash";
 import { useContext, useEffect, useState } from "react";
+import styled from "styled-components";
+
+const SearchContainer = styled.div`
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  outline: none;
+  border: none;
+`;
 
 const Search = () => {
   const {
@@ -30,13 +47,14 @@ const Search = () => {
     className = "",
     onChange,
     placeholder,
+    ref,
     ...restSearchInputProps
   } = searchInputProps;
 
   return (
-    <div className="sticky top-0 left-0 right-0 bg-white">
-      <input
-        className={classNames("w-full px-2 outline-none", className)}
+    <SearchContainer>
+      <SearchInput
+        className={classNames(className)}
         type="text"
         onChange={(e) => {
           onChange && onChange(e);
@@ -45,7 +63,7 @@ const Search = () => {
         placeholder={placeholder ? placeholder : "Search..."}
         {...restSearchInputProps}
       />
-    </div>
+    </SearchContainer>
   );
 };
 

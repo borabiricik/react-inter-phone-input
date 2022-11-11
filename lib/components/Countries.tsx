@@ -1,6 +1,11 @@
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import React, { useContext } from "react";
+import styled from "styled-components";
 import CountryItem from "./CountryItem";
+
+const CountryContainer = styled.div`
+  text-align: center;
+`;
 
 const Countries = () => {
   const { countries, filteredCountries, searchValue, noCountiesFoundText } =
@@ -22,9 +27,9 @@ const Countries = () => {
           });
         })
       ) : (
-        <div className="text-center">
+        <CountryContainer>
           {noCountiesFoundText ? noCountiesFoundText : "No Countries Found"}
-        </div>
+        </CountryContainer>
       )}
     </>
   );

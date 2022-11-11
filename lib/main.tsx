@@ -4,9 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import { PhoneInputContext } from "./context/PhoneInputContext";
-import "lib/styles/global.css";
 import { ICountry, IPhoneInputProps, ISelectedCountry } from "./types/main";
 import { classNames } from "./utils/classNames";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  align-items: stretch;
+`;
 
 const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const {
@@ -27,8 +32,11 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   const [phoneNumber, setphoneNumber] = useState("");
   const [inputValue, setinputValue] = useState("");
 
-  const { className: containerClassName = "", ...restContainerProps } =
-    containerProps;
+  const {
+    className: containerClassName = "",
+    ref,
+    ...restContainerProps
+  } = containerProps;
 
   useEffect(() => {
     if (!countries) {
@@ -86,14 +94,14 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setsearchValue: setinputValue,
       }}
     >
-      <div
+      <Container
         {...restContainerProps}
-        className={classNames("flex items-stretch", containerClassName)}
+        className={classNames(containerClassName)}
       >
         <Dropdown />
         <Input />
         {append && append}
-      </div>
+      </Container>
     </PhoneInputContext.Provider>
   );
 };

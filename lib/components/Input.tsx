@@ -11,27 +11,28 @@ const Input = () => {
   return (
     <MaskedInput
       mask={[
-        "(",
         /[1-9]/,
         /\d/,
         /\d/,
-        ")",
         " ",
         /\d/,
         /\d/,
         /\d/,
-        "-",
+        " ",
         /\d/,
         /\d/,
         /\d/,
         /\d/,
       ]}
+      guide={false}
       value={value ? (value as string) : undefined}
       placeholder={placeholder}
+      keepCharPositions
       onChange={(e) => {
-        setphoneNumber(value);
-        onInputChange && onInputChange(e.target.value);
-        onChange && onChange(selectedCountry, e.target.value);
+        setphoneNumber(e.target.value);
+        onInputChange && onInputChange(e.target.value.replaceAll(" ", ""));
+        onChange &&
+          onChange(selectedCountry, e.target.value.replaceAll(" ", ""));
       }}
       className={classNames("border-none flex-1 outline-none", inputClassName)}
     />

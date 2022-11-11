@@ -1,12 +1,31 @@
 import { motion } from "framer-motion";
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
-import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { classNames } from "lib/utils/classNames";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
+import styled from "styled-components";
 import DropdownMenu from "./DropdownMenu";
 import ChevronDownSVG from "./icons/ChevronDownSVG";
+
+const DropdownButton = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
+
+const SelectedCountry = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 4px normal;
+`;
+
+const SelectedCountryFlag = styled.img`
+  width: 1rem;
+  height: 1rem;
+  object-fit: fill;
+`;
 
 const Dropdown = () => {
   const {
@@ -42,11 +61,16 @@ const Dropdown = () => {
     ...restDropdownButtonProps
   } = dropdownButtonProps;
 
-  const { className: flagClassName = "", src, ...restFlagProps } = flagProps;
+  const {
+    className: flagClassName = "",
+    src,
+    ref: trashRef,
+    ...restFlagProps
+  } = flagProps;
 
   return (
     <div>
-      <div
+      <DropdownButton
         {...restDropdownButtonProps}
         ref={setReferenceElement}
         onClick={(e) => {
@@ -56,22 +80,19 @@ const Dropdown = () => {
           onClick && onClick(e);
         }}
         data-exception="true"
-        className={classNames(
-          "cursor-pointer flex items-center rtl:space-x-reverse",
-          dropdownButtonClassName
-        )}
+        className={classNames(dropdownButtonClassName)}
       >
         <div>
           {selectedCountry ? (
-            <span className="flex items-center space-x-1 rtl:space-x-reverse">
-              <img
+            <SelectedCountry>
+              <SelectedCountryFlag
                 src={selectedCountry.flag}
                 alt="Selected Country Flag"
-                className={classNames("w-4 h-4 object-fill", flagClassName)}
+                className={classNames(flagClassName)}
                 {...restFlagProps}
               />
               <span>{selectedCountry.dialCode}</span>
-            </span>
+            </SelectedCountry>
           ) : (
             placeholder
           )}
@@ -82,7 +103,7 @@ const Dropdown = () => {
             <ChevronDownSVG style={{ width: 12, height: 12 }} />
           </motion.div>
         )}
-      </div>
+      </DropdownButton>
       {createPortal(
         <div>
           <DropdownMenu
