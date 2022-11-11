@@ -4,13 +4,8 @@ import { useContext } from "react";
 import MaskedInput from "react-text-mask";
 
 const Input = () => {
-  const {
-    onInputChange,
-    phoneNumber,
-    setphoneNumber,
-    onChange,
-    selectedCountry,
-  } = useContext(PhoneInputContext);
+  const { onInputChange, setphoneNumber, onChange, selectedCountry } =
+    useContext(PhoneInputContext);
   const { inputProps = {} } = useContext(PhoneInputContext);
   const { className: inputClassName = "", value, placeholder } = inputProps;
   return (

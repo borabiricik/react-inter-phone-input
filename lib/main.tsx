@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import { PhoneInputContext } from "./context/PhoneInputContext";
-import "./styles/global.css";
+import "lib/styles/global.css";
 import { ICountry, IPhoneInputProps, ISelectedCountry } from "./types/main";
 import { classNames } from "./utils/classNames";
 
