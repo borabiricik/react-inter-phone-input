@@ -7,7 +7,13 @@ const Input = () => {
   const { onInputChange, setphoneNumber, onChange, selectedCountry } =
     useContext(PhoneInputContext);
   const { inputProps = {} } = useContext(PhoneInputContext);
-  const { className: inputClassName = "", value, placeholder } = inputProps;
+  const {
+    className: inputClassName = "",
+    value,
+    placeholder,
+    ref,
+    ...rest
+  } = inputProps;
   return (
     <MaskedInput
       mask={[
@@ -35,6 +41,7 @@ const Input = () => {
           onChange(selectedCountry, e.target.value.replaceAll(" ", ""));
       }}
       className={classNames("border-none flex-1 outline-none", inputClassName)}
+      {...rest}
     />
   );
 };
