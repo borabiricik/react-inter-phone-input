@@ -13,7 +13,7 @@ const Container = styled.div`
   align-items: stretch;
 `;
 
-const PhoneInput = ({ ...props }: IPhoneInputProps) => {
+const PhoneInput = ({ onChange, ...props }: IPhoneInputProps) => {
   const {
     countries,
     onCountryChange,
@@ -37,6 +37,10 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
     ref,
     ...restContainerProps
   } = containerProps;
+
+  useEffect(() => {
+    onChange && onChange(selectedCountry, phoneNumber.replaceAll(" ", ""));
+  }, [selectedCountry, phoneNumber]);
 
   useEffect(() => {
     if (!countries) {
@@ -80,7 +84,6 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
   return (
     <PhoneInputContext.Provider
       value={{
-        ...props,
         countries: internalCounties,
         selectedCountry,
         setselectedCountry,
@@ -92,6 +95,7 @@ const PhoneInput = ({ ...props }: IPhoneInputProps) => {
         setfilteredCountries,
         searchValue: inputValue,
         setsearchValue: setinputValue,
+        ...props,
       }}
     >
       <Container

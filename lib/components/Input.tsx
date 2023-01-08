@@ -4,9 +4,11 @@ import { LegacyRef, useContext } from "react";
 import MaskedInput from "react-text-mask";
 
 const Input = () => {
-  const { onInputChange, setphoneNumber, onChange, selectedCountry } =
-    useContext(PhoneInputContext);
-  const { inputProps = {} } = useContext(PhoneInputContext);
+  const {
+    onInputChange,
+    setphoneNumber,
+    inputProps = {},
+  } = useContext(PhoneInputContext);
   const {
     className: inputClassName = "",
     value,
@@ -38,8 +40,6 @@ const Input = () => {
       onChange={(e) => {
         setphoneNumber(e.target.value);
         onInputChange && onInputChange(e.target.value.replaceAll(" ", ""));
-        onChange &&
-          onChange(selectedCountry, e.target.value.replaceAll(" ", ""));
       }}
       className={classNames("border-none flex-1 outline-none", inputClassName)}
       {...rest}
