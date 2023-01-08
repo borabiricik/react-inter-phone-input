@@ -1,6 +1,6 @@
 import { PhoneInputContext } from "lib/context/PhoneInputContext";
 import { classNames } from "lib/utils/classNames";
-import { useContext } from "react";
+import { LegacyRef, useContext } from "react";
 import MaskedInput from "react-text-mask";
 
 const Input = () => {
@@ -30,6 +30,7 @@ const Input = () => {
         /\d/,
         /\d/,
       ]}
+      ref={ref as LegacyRef<MaskedInput>}
       guide={false}
       value={value ? (value as string) : undefined}
       placeholder={placeholder}
