@@ -88,6 +88,7 @@
     "url": "https://github.com/borabiricik/react-inter-phone-input"
   },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com/react-inter-phone-input",
     "access": "public"
   }
 }
