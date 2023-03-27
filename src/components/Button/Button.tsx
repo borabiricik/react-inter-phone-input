@@ -15,6 +15,8 @@ export const Button: React.FC<ButtonProps> = ({ text, type, onClick }) => {
   // For testing purpose
   const { isHovered } = useHover(ref);
 
+  console.log("asd")
+
   return (
     <button
       ref={ref}
