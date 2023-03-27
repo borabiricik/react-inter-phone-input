@@ -58,6 +58,7 @@
         "args": "after-used",
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "at-rule-no-unknown": "off"
   }
 }
