@@ -28,7 +28,7 @@
     "typescript",
     "npm-package"
   ],
-  "author": "Yurii Brusentsov",
+  "author": "Bora Biricik",
   "license": "MIT",
   "peerDependencies": {
     "react": "^17.0.2",
