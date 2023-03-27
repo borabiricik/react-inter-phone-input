@@ -6,5 +6,19 @@
     "stylelint-prettier/recommended"
   ],
   "plugins": ["stylelint-order"],
-  "rules": {}
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "function",
+          "if",
+          "each",
+          "include",
+          "mixin",
+          "tailwind"
+        ]
+      }
+    ]
+  }
 }
