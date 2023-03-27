@@ -8,6 +8,8 @@ jobs:
     name: Development
     runs-on: ubuntu-latest
     steps:
+      with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
         with:
