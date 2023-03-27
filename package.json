@@ -85,7 +85,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/borabiricik/react-inter-phone-input.git"
+    "url": "https://github.com/borabiricik/react-inter-phone-input"
   },
   "publishConfig": {
     "access": "public"
