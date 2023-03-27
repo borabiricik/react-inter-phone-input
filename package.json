@@ -2,8 +2,9 @@
   "name": "react-inter-phone-input",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index",
+  "module": "dist/index.es",
+  "typings": "dist/index",
   "scripts": {
     "build": "rollup -c",
     "storybook": "storybook dev -p 6006",

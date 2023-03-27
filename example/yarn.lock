@@ -1806,7 +1806,7 @@
     "scheduler" "^0.23.0"
 
 "react-inter-phone-input@github:borabiricik/react-inter-phone-input#dev":
-  "resolved" "git+ssh://git@github.com/borabiricik/react-inter-phone-input.git#de27579babdf4ab7a26accd2a5ffe3e2af1afdf4"
+  "resolved" "git+ssh://git@github.com/borabiricik/react-inter-phone-input.git#16864c86a607b58a63040666acbfc6771d3bc56c"
   "version" "1.0.0"
   dependencies:
     "tailwindcss" "^3.2.7"
