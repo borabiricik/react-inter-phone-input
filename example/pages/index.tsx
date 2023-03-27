@@ -1,8 +1,12 @@
 import type { NextPage } from 'next';
-// import {} from "react-inter-phone-input"
+import { Button } from 'react-inter-phone-input';
 
 const Home: NextPage = () => {
-  return <div>{/* <Button */}</div>;
+  return (
+    <div>
+      <Button text="asd" />
+    </div>
+  );
 };
 
 export default Home;

@@ -1682,6 +1682,11 @@ react-dom@18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-inter-phone-input@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-inter-phone-input/-/react-inter-phone-input-2.0.0.tgz#5ae4966956d0c5a0b8793843541f31cf415ad2ad"
+  integrity sha512-1dDDaF/8+fwT/96urZaNvunsvOCH+vp2hW5Vg5/Sz6DHR9jmxto5roJ2NM+wogu1cCKIYHv72Y/tV+3bJ9AjuA==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
