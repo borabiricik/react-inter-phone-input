@@ -1,14 +1,8 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+import type { NextPage } from 'next';
 // import {} from "react-inter-phone-input"
+
 const Home: NextPage = () => {
-  return (
-    <>
-      asd
-      {/* <Button /> */}
-    </>
-  );
+  return <div>{/* <Button */}</div>;
 };
 
 export default Home;
