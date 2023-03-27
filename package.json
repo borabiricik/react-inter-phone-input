@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "react-ts-npm-package-boilerplate",
+  "name": "react-inter-phone-input",
   "version": "1.1.2",
   "description": "Boilerplate for React/Typescript npm package",
   "main": "build/index.js",
@@ -85,7 +85,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/goveo/react-ts-npm-package-boilerplate.git"
+    "url": "https://github.com/borabiricik/react-inter-phone-input.git"
   },
   "publishConfig": {
     "access": "public"
