@@ -1,38 +1,7 @@
-import './Button.css';
+import React from 'react';
 
-import React, { useRef } from 'react';
+export interface ButtonProps {}
 
-import { useHover } from '../../hooks/useHover';
-
-export interface ButtonProps {
-  text: string;
-  type?: 'success' | 'warning' | 'error';
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-export const Button: React.FC<ButtonProps> = ({ text, type, onClick }) => {
-  const ref = useRef<HTMLButtonElement | null>(null);
-  // For testing purpose
-  const { isHovered } = useHover(ref);
-
-  console.log("asd")
-
-  return (
-    <button
-      ref={ref}
-      className={[
-        'button',
-        type ? `button-${type}` : '',
-        isHovered ? 'button--hovered' : '',
-      ]
-        .join(' ')
-        .trim()}
-      style={{
-        opacity: isHovered ? 0.7 : 1,
-      }}
-      onClick={onClick}
-    >
-      {text}
-    </button>
-  );
+export const Button: React.FC<ButtonProps> = () => {
+  return <button className="bg-red-200">asdasd</button>;
 };
