@@ -1,21 +1,24 @@
 import { AxiosResponse } from 'axios';
+import classNames from 'classnames';
 import React, { createContext, useCallback, useEffect, useState } from 'react';
 
 import { instance } from '../../lib/axios';
 import { compare } from '../../lib/utils';
+import { MobileNumberContextProps } from '../../types/Context';
 import { Country } from '../../types/Country';
-
-export interface MobileNumberProps {}
-
-export interface MobileNumberContextProps {
-  countries: Country[] | null;
-}
+import { MobileNumberProps } from '../../types/MobileNumber';
+import Dropdown from './sub-components/Dropdown';
+import Input from './sub-components/Input';
 
 const MobileNumberContext = createContext<MobileNumberContextProps>({
   countries: null,
 });
 
-export const MobileNumber: React.FC<MobileNumberProps> = () => {
+export const MobileNumber: React.FC<MobileNumberProps> = ({
+  direction = 'ltr',
+  containerProps = {},
+  dropdownProps,
+}) => {
   const [countries, setcountries] = useState<Country[] | null>([]);
   const getCountries = useCallback(async () => {
     const response: AxiosResponse<Country[]> = await instance.get('/all', {
@@ -26,17 +29,27 @@ export const MobileNumber: React.FC<MobileNumberProps> = () => {
     setcountries(response.data.sort(compare));
   }, []);
 
-  console.log(countries);
-
   useEffect(() => {
     getCountries();
   }, [getCountries]);
+
+  const { className = '', ...restContainerProps } = containerProps;
 
   return (
     <MobileNumberContext.Provider
       value={{ countries: countries ? [...countries] : null }}
     >
-      <div>asd</div>
+      <div
+        dir={direction}
+        className={classNames(
+          'flex items-stretch border border-fadingSunset rounded-md',
+          className,
+        )}
+        {...restContainerProps}
+      >
+        <Dropdown {...dropdownProps} />
+        <Input />
+      </div>
     </MobileNumberContext.Provider>
   );
 };
