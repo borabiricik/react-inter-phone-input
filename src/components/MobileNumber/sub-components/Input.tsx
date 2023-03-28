@@ -16,7 +16,10 @@ const Input = ({ className = '', onChange, ...restInputProps }: InputProps) => {
     <input
       value={phoneNumber}
       onChange={handleChange}
-      className={classNames('flex-1 outline-none px-2', className)}
+      className={classNames(
+        'flex-1 outline-none px-2 ltr:rounded-r-md rtl:rounded-l-md text-sm',
+        className,
+      )}
       type={'number'}
       {...restInputProps}
     />

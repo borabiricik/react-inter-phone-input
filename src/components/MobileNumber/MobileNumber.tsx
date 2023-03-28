@@ -55,25 +55,11 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
 
   const { className = '', ...restContainerProps } = containerProps;
 
-  const findInCountries = (dialCode: string | null) => {
-    if (countries && dialCode) {
-      const foundCountry = countries.find((country) =>
-        country.dialCodes.find(
-          (countryDialCode) => countryDialCode === dialCode,
-        ),
-      );
-      return foundCountry ? foundCountry : null;
-    }
-    return null;
-  };
-
   return (
     <MobileNumberContext.Provider
       value={{
         countries: countries ? [...countries] : null,
-        selectedCountry: findInCountries(
-          value.dialCode ? value.dialCode : null,
-        ),
+        selectedCountry: value.dialCode ? value.dialCode : null,
         setSelectedCountry(dialCode) {
           onCountryChange(dialCode);
         },

@@ -4,6 +4,6 @@ export interface MobileNumberContextProps {
   countries: Country[] | null;
   phoneNumber: string;
   setPhoneNumber?: (phoneNumber: string) => void;
-  selectedCountry: Country | null;
+  selectedCountry: string | null;
   setSelectedCountry?: (dialCode: string) => void;
 }

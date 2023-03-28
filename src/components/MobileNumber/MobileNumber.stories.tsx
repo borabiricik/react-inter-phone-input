@@ -9,7 +9,8 @@ export default {
 
 export const Default = () => {
   const [phoneNumber, setphoneNumber] = useState('1234');
-  const [selectedCountryDialCode, setselectedCountryDialCode] = useState('+90');
+  const [selectedCountryDialCode, setselectedCountryDialCode] =
+    useState('+965');
   return (
     <>
       <MobileNumber
