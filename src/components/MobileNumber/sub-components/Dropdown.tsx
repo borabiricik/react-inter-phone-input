@@ -14,17 +14,20 @@ const Dropdown = (props: DropdownProps) => {
   return (
     <button
       className={classNames(
-        'min-w-[90px] px-3 py-2 bg-childOfLight flex items-center space-x-[10px] rtl:space-x-reverse ltr:rounded-l-md rtl:rounded-r-md ltr:border-r rtl:border-l border-fadingSunset',
+        'min-w-[90px] px-3 py-2 bg-childOfLight flex items-center gap-x-[10px] ltr:rounded-l-md rtl:rounded-r-md ltr:border-r rtl:border-l border-fadingSunset',
         className,
       )}
       onClick={handleClick}
       type="button"
       {...restProps}
     >
-      <span>Dropdown</span>
+      <div className="flex items-center">
+        <span>img</span>
+        <span className="text-leadBlack text-xs">+965</span>
+      </div>
       <ChevronUpSVG
         className={classNames(
-          'w-3 h-3 fill-black transition-all',
+          'w-3 h-3 fill-bluntGray transition-all',
           isOpen ? 'rotate-0' : 'rotate-180',
         )}
       />

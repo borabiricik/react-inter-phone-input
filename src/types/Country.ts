@@ -2,6 +2,7 @@ export interface Country {
   flags: Flags;
   name: Name;
   idd: Idd;
+  dialCodes: string[];
 }
 
 export interface Flags {
