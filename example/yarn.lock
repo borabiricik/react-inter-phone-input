@@ -1072,6 +1072,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
+fs@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==
+
 fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
@@ -1994,6 +1999,20 @@ react-fast-compare@^3.0.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.1.tgz#53933d9e14f364281d6cba24bfed7a4afb808b5f"
   integrity sha512-xTYf9zFim2pEif/Fw16dBiXpe0hoy5PxcD8+OwBnTtNLfIm3g6WxhKNurY+6OmdH1u6Ta/W/Vl6vjbYP1MFnDg==
+
+react-inter-phone-input-2@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/react-inter-phone-input-2/-/react-inter-phone-input-2-1.7.0.tgz#35ff6fabdd13bae04045c799ff26263beaa7335d"
+  integrity sha512-R1rntduKPXREWl5QkFRwoR5bP/ySBOsM5oELRs0doM0w80zB8d6BLXJoGLoYot/yaT7QH6Y6lBAkrO+JCO8zCQ==
+  dependencies:
+    "@popperjs/core" "^2.11.7"
+    axios "^1.3.4"
+    classnames "^2.3.2"
+    eslint-plugin-unused-imports "^2.0.0"
+    react-popper "^2.3.0"
+    react-text-mask "^5.5.0"
+    tailwind-scrollbar-hide "^1.1.7"
+    tailwindcss "^3.3.0"
 
 "react-inter-phone-input@https://github.com/borabiricik/react-inter-phone-input.git#dev":
   version "1.6.0"
