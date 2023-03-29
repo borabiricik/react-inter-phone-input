@@ -88,7 +88,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         {...restContainerProps}
       >
         <Dropdown {...dropdownProps} />
-        <Input {...inputProps} />
+        <Input {...inputProps} mask={[]} />
       </div>
     </MobileNumberContext.Provider>
   );
