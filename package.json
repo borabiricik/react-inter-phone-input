@@ -96,8 +96,7 @@
     "url": "https://github.com/borabiricik/react-inter-phone-input"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/react-inter-phone-input-2"
+    "access": "public"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.7",
