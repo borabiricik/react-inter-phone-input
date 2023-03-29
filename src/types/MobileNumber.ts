@@ -18,4 +18,5 @@ export interface MobileNumberProps {
     dialCode: string;
   };
   append?: ReactElement;
+  enableSuffixes?: boolean;
 }

@@ -17,7 +17,7 @@ const DropdownItem = ({ country, dialCode }: DropdownItemProps) => {
   return (
     <button
       onClick={handleSelect}
-      className="grid grid-cols-10 grid-flow-col gap-x-2 items-center border-t border-b-gray-200 px-2 line-clamp-1"
+      className="grid grid-cols-10 grid-flow-col gap-x-2 items-center border-t border-b-gray-200 px-2"
     >
       <div className="flex flex-col items-center py-1 col-span-2">
         <img
@@ -26,9 +26,9 @@ const DropdownItem = ({ country, dialCode }: DropdownItemProps) => {
         />
         <span className="text-gray-500 text-xs">{dialCode}</span>
       </div>
-      <div className="flex items-center justify-start text-sm rtl:pr-2 ltr:pl-2 col-span-8">
+      <p className="flex items-center ltr:text-left rtl:text-right justify-start text-sm rtl:pr-2 ltr:pl-2 col-span-8 line-clamp-1">
         {country.name.common}
-      </div>
+      </p>
     </button>
   );
 };

@@ -15,7 +15,6 @@ export const Default = () => {
   return (
     <div className="">
       <MobileNumber
-        direction={'rtl'}
         value={{ phoneNumber: phoneNumber, dialCode: selectedCountryDialCode }}
         onPhoneNumberChange={(phoneNumber) => {
           setphoneNumber(phoneNumber);

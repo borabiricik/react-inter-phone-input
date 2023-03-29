@@ -11,4 +11,5 @@ export interface MobileNumberContextProps {
   isOpen: boolean;
   setisOpen: Dispatch<SetStateAction<boolean>>;
   append?: ReactElement;
+  enableSuffixes?: boolean;
 }

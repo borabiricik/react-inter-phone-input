@@ -5,7 +5,7 @@ import { MobileNumberContext } from '../MobileNumber';
 import DropdownItem from './DropdownItem';
 
 const DropdownMenu = () => {
-  const { countries } = useContext(MobileNumberContext);
+  const { countries, enableSuffixes } = useContext(MobileNumberContext);
 
   if (countries) {
     return (
@@ -15,7 +15,7 @@ const DropdownMenu = () => {
         </div>
         <div className="flex flex-col overflow-y-scroll scrollbar-hide pt-2">
           {countries.map((country, index) => {
-            if (country.dialCodes.length > 1) {
+            if (enableSuffixes && country.dialCodes.length > 1) {
               return country.dialCodes.map((dialCode, index) => (
                 <DropdownItem
                   key={index}

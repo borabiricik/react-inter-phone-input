@@ -16,6 +16,7 @@ const initialValues: MobileNumberContextProps = {
   selectedCountry: null,
   setisOpen: () => null,
   isOpen: false,
+  enableSuffixes: false,
 };
 
 export const MobileNumberContext =
@@ -30,6 +31,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
   onCountryChange,
   onPhoneNumberChange,
   append,
+  enableSuffixes = false,
 }) => {
   const [countries, setcountries] = useState<Country[] | null>([]);
   const [isOpen, setisOpen] = useState(false);
@@ -74,6 +76,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         setisOpen,
         isOpen,
         append,
+        enableSuffixes,
       }}
     >
       <div
