@@ -4,7 +4,7 @@ import { MobileNumber } from 'react-inter-phone-input';
 
 const Home: NextPage = () => {
   const [phoneNumber, setphoneNumber] = useState('');
-  const [selectedCountry, setselectedCountry] = useState('+90');
+  const [selectedCountry, setselectedCountry] = useState('+1');
   return (
     <div>
       <MobileNumber
