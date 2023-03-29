@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "react-inter-phone-input",
+  "name": "react-inter-phone-input-2",
   "version": "1.6.0",
   "description": "Boilerplate for React/Typescript npm package",
   "main": "build/index.js",
@@ -93,10 +93,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/borabiricik/react-inter-phone-input"
+    "url": "https://github.com/borabiricik/react-inter-phone-input-2"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/react-inter-phone-input",
     "access": "public"
   },
   "dependencies": {
