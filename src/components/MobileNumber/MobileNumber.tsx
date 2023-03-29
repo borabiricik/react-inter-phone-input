@@ -14,6 +14,8 @@ const initialValues: MobileNumberContextProps = {
   countries: null,
   phoneNumber: '',
   selectedCountry: null,
+  setisOpen: () => null,
+  isOpen: false,
 };
 
 export const MobileNumberContext =
@@ -29,6 +31,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
   onPhoneNumberChange,
 }) => {
   const [countries, setcountries] = useState<Country[] | null>([]);
+  const [isOpen, setisOpen] = useState(false);
   const getCountries = useCallback(async () => {
     const response: AxiosResponse<Country[]> = await instance.get('/all', {
       params: {
@@ -67,6 +70,8 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         setPhoneNumber(phoneNumber) {
           onPhoneNumberChange(phoneNumber);
         },
+        setisOpen,
+        isOpen,
       }}
     >
       <div

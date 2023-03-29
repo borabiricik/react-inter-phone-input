@@ -1,20 +1,22 @@
 import classNames from 'classnames';
-import React, { MouseEvent, useContext, useState } from 'react';
+import React, { MouseEvent, useContext, useRef, useState } from 'react';
 import { usePopper } from 'react-popper';
 
 import ChevronUpSVG from '../../../assets/images/ChevronUpSVG';
+import { useOnClickOutside } from '../../../hooks/useOutsideClick';
 import { findInCountries } from '../../../lib/utils';
 import { DropdownProps } from '../../../types/MobileNumber';
 import { MobileNumberContext } from '../MobileNumber';
 import DropdownMenu from './DropdownMenu';
 
 const Dropdown = (props: DropdownProps) => {
-  const [isOpen, setisOpen] = useState(false);
   const { className = '', onClick, ...restProps } = props;
 
-  const { countries, selectedCountry } = useContext(MobileNumberContext);
+  const { countries, selectedCountry, setisOpen, isOpen } =
+    useContext(MobileNumberContext);
   const [referenceElement, setReferenceElement] = useState<any>(null);
   const [popperElement, setPopperElement] = useState<any>(null);
+  const outsideClickRef = useRef(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     onClick && onClick(e);
@@ -23,12 +25,17 @@ const Dropdown = (props: DropdownProps) => {
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: 'bottom-start',
+    modifiers: [{ name: 'offset', options: { offset: [0, 3] } }],
   });
 
   const foundCountry = findInCountries(countries, selectedCountry);
 
+  useOnClickOutside(outsideClickRef, () => {
+    setisOpen(false);
+  });
+
   return (
-    <>
+    <div ref={outsideClickRef}>
       <button
         ref={setReferenceElement}
         className={classNames(
@@ -59,10 +66,16 @@ const Dropdown = (props: DropdownProps) => {
           'Country not found'
         )}
       </button>
-      <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
-        <DropdownMenu />
-      </div>
-    </>
+      {isOpen && (
+        <div
+          ref={setPopperElement}
+          style={styles.popper}
+          {...attributes.popper}
+        >
+          <DropdownMenu />
+        </div>
+      )}
+    </div>
   );
 };
 

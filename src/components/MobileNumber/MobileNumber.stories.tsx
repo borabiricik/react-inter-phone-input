@@ -12,7 +12,7 @@ export const Default = () => {
   const [selectedCountryDialCode, setselectedCountryDialCode] =
     useState('+965');
   return (
-    <>
+    <div className="w-screen h-screen">
       <MobileNumber
         value={{ phoneNumber: phoneNumber, dialCode: selectedCountryDialCode }}
         onPhoneNumberChange={(phoneNumber) => {
@@ -24,6 +24,6 @@ export const Default = () => {
       />
       {selectedCountryDialCode}
       {phoneNumber}
-    </>
+    </div>
   );
 };
