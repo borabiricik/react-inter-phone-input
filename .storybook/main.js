@@ -14,6 +14,7 @@ module.exports = {
         postCss: true,
       },
     },
+    'storybook-addon-rtl',
   ],
   core: {
     builder: '@storybook/builder-webpack5',
