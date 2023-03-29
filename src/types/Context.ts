@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, ReactElement, SetStateAction } from 'react';
 
 import { Country } from './Country';
 
@@ -10,4 +10,5 @@ export interface MobileNumberContextProps {
   setSelectedCountry?: (dialCode: string) => void;
   isOpen: boolean;
   setisOpen: Dispatch<SetStateAction<boolean>>;
+  append?: ReactElement;
 }

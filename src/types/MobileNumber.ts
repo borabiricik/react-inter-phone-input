@@ -1,4 +1,4 @@
-import { HTMLAttributes, InputHTMLAttributes } from 'react';
+import { HTMLAttributes, InputHTMLAttributes, ReactElement } from 'react';
 
 type ContainerProps = HTMLAttributes<HTMLDivElement>;
 
@@ -17,4 +17,5 @@ export interface MobileNumberProps {
     phoneNumber: string;
     dialCode: string;
   };
+  append?: ReactElement;
 }
