@@ -12,4 +12,6 @@ export interface MobileNumberContextProps {
   setisOpen: Dispatch<SetStateAction<boolean>>;
   append?: ReactElement;
   enableSuffixes?: boolean;
+  searchCountries: Country[] | null;
+  setsearchCountries: Dispatch<SetStateAction<Country[] | null>>;
 }
