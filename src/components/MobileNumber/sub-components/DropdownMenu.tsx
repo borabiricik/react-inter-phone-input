@@ -1,9 +1,36 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 
 import Glass from '../../common/Glass';
 import { MobileNumberContext } from '../MobileNumber';
 import DropdownItem from './DropdownItem';
 import SearchInput from './SearchInput';
+
+const GlassDiv = styled(Glass)`
+  max-height: 300px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  width: 350px;
+`;
+
+const SearchInputContainer = styled.div`
+  position: sticky;
+  top: 0.25rem;
+  left: 0.25rem;
+  right: 0.25rem;
+`;
+
+const CountriesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  padding-top: 0.5rem;
+`;
 
 const DropdownMenu = () => {
   const { countries, enableSuffixes, searchCountries } =
@@ -12,11 +39,11 @@ const DropdownMenu = () => {
   if (countries) {
     const countryArray = searchCountries ? searchCountries : countries;
     return (
-      <Glass className="max-h-[300px] overflow-y-scroll scrollbar-hide w-[350px]">
-        <div className="sticky top-1 mx-1 ">
+      <GlassDiv>
+        <SearchInputContainer>
           <SearchInput />
-        </div>
-        <div className="flex flex-col overflow-y-scroll scrollbar-hide pt-2">
+        </SearchInputContainer>
+        <CountriesContainer>
           {countryArray.map((country, index) => {
             if (enableSuffixes && country.dialCodes.length > 1) {
               return country.dialCodes.map((dialCode, index) => (
@@ -35,8 +62,8 @@ const DropdownMenu = () => {
                 />
               );
           })}
-        </div>
-      </Glass>
+        </CountriesContainer>
+      </GlassDiv>
     );
   }
   return null;

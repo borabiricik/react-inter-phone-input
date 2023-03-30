@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 
 import { Country } from '../../../types';
 import { MobileNumberContext } from '../MobileNumber';
@@ -8,6 +9,47 @@ interface DropdownItemProps {
   dialCode: string;
 }
 
+const CountryContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-auto-flow: column;
+  gap: 0 0.5rem;
+  align-items: center;
+  border-top: 1px solid rgb(229 231 235);
+  padding: 0 0.5rem;
+  cursor: pointer;
+`;
+
+const FlagContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 0.25rem;
+  grid-column: span 2 / span 2;
+`;
+
+const Flag = styled.img`
+  width: 1.25rem;
+  height: 1.2rem;
+  object-fit: fill;
+  border-radius: 100%;
+`;
+
+const DialCode = styled.span`
+  font-size: 0.875rem;
+  color: rgb(107 114 128);
+`;
+
+const CountryName = styled.p`
+  display: flex;
+  align-items: center;
+  text-align: left;
+  justify-content: start;
+  font-size: 0.875rem;
+  padding-left: 0.5rem;
+  grid-column: span 8 / span 8;
+`;
+
 const DropdownItem = ({ country, dialCode }: DropdownItemProps) => {
   const { setSelectedCountry, setisOpen } = useContext(MobileNumberContext);
   const handleSelect = () => {
@@ -15,21 +57,13 @@ const DropdownItem = ({ country, dialCode }: DropdownItemProps) => {
     setisOpen(false);
   };
   return (
-    <button
-      onClick={handleSelect}
-      className="grid grid-cols-10 grid-flow-col gap-x-2 items-center border-t border-b-gray-200 px-2"
-    >
-      <div className="flex flex-col items-center py-1 col-span-2">
-        <img
-          src={country.flags.png}
-          className="w-5 h-5 object-fill rounded-full"
-        />
-        <span className="text-gray-500 text-xs">{dialCode}</span>
-      </div>
-      <p className="flex items-center ltr:text-left rtl:text-right justify-start text-sm rtl:pr-2 ltr:pl-2 col-span-8 line-clamp-1">
-        {country.name.common}
-      </p>
-    </button>
+    <CountryContainer onClick={handleSelect}>
+      <FlagContainer>
+        <Flag src={country.flags.png} />
+        <DialCode>{dialCode}</DialCode>
+      </FlagContainer>
+      <CountryName>{country.name.common}</CountryName>
+    </CountryContainer>
   );
 };
 
