@@ -59,6 +59,7 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "at-rule-no-unknown": "off"
+    "at-rule-no-unknown": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

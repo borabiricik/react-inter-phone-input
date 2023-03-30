@@ -3,7 +3,9 @@ import '../../index.css';
 import { AxiosResponse } from 'axios';
 import classNames from 'classnames';
 import React, { createContext, useCallback, useEffect, useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
+import { theme } from '../../assets/theme';
 import { instance } from '../../lib/axios';
 import { compare } from '../../lib/utils';
 import { MobileNumberContextProps } from '../../types/Context';
@@ -11,6 +13,14 @@ import { Country } from '../../types/Country';
 import { MobileNumberProps } from '../../types/MobileNumber';
 import Dropdown from './sub-components/Dropdown';
 import Input from './sub-components/Input';
+
+const Container = styled.div`
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #b5b5c3;
+  border-radius: 6px;
+  font-size: 0.875rem;
+`;
 
 const initialValues: MobileNumberContextProps = {
   countries: null,
@@ -88,17 +98,16 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         setsearchCountries,
       }}
     >
-      <div
-        dir={direction}
-        className={classNames(
-          'flex items-stretch border border-fadingSunset rounded-md',
-          className,
-        )}
-        {...restContainerProps}
-      >
-        <Dropdown {...dropdownProps} />
-        <Input {...inputProps} mask={[]} />
-      </div>
+      <ThemeProvider theme={{ ...theme, direction }}>
+        <Container
+          dir={direction}
+          className={classNames(className)}
+          {...restContainerProps}
+        >
+          <Dropdown {...dropdownProps} />
+          <Input {...inputProps} mask={[]} />
+        </Container>
+      </ThemeProvider>
     </MobileNumberContext.Provider>
   );
 };

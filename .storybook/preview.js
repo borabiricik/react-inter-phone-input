@@ -1,4 +1,3 @@
-import '../src/assets/globals.css';
 import { initializeRTL } from 'storybook-addon-rtl';
 
 initializeRTL();

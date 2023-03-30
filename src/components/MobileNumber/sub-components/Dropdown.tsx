@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { MouseEvent, useContext, useRef, useState } from 'react';
 import { usePopper } from 'react-popper';
+import styled from 'styled-components';
 
 import ChevronUpSVG from '../../../assets/images/ChevronUpSVG';
 import { useOnClickOutside } from '../../../hooks/useOutsideClick';
@@ -8,6 +9,41 @@ import { findInCountries } from '../../../lib/utils';
 import { DropdownProps } from '../../../types/MobileNumber';
 import { MobileNumberContext } from '../MobileNumber';
 import DropdownMenu from './DropdownMenu';
+
+const DropdownButton = styled.button`
+  min-width: 90px;
+  padding: 8px 12px;
+  background-color: #eff4f7;
+  display: flex;
+  align-items: center;
+  gap: 0px 10px;
+  border: none;
+  border-right: 1px solid #b5b5c3;
+  cursor: pointer;
+`;
+
+const CountryContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0px 3px;
+`;
+
+const CountryImage = styled.img`
+  width: 1rem;
+  height: 1rem;
+  object-fit: fill;
+  border-radius: 50%;
+`;
+
+const DialCode = styled.span`
+  color: #212121;
+`;
+
+const Arrow = styled(ChevronUpSVG)`
+  width: 0.8125rem;
+  height: 0.8125rem;
+  transition: all 0.3s;
+`;
 
 const Dropdown = (props: DropdownProps) => {
   const { className = '', onClick, ...restProps } = props;
@@ -36,36 +72,29 @@ const Dropdown = (props: DropdownProps) => {
 
   return (
     <div ref={outsideClickRef}>
-      <button
+      <DropdownButton
         ref={setReferenceElement}
-        className={classNames(
-          'min-w-[90px] px-3 py-2 bg-childOfLight flex items-center gap-x-[10px] ltr:rounded-l-md rtl:rounded-r-md ltr:border-r rtl:border-l border-fadingSunset',
-          className,
-        )}
+        className={classNames(className)}
         onClick={handleClick}
         type="button"
         {...restProps}
       >
         {foundCountry ? (
           <>
-            <div className="flex items-center gap-x-[3px]">
-              <img
-                src={foundCountry.flags.png}
-                className="w-4 h-4 object-fill rounded-full"
-              />
-              <span className="text-leadBlack text-xs">{selectedCountry}</span>
-            </div>
-            <ChevronUpSVG
-              className={classNames(
-                'w-3 h-3 fill-bluntGray transition-all',
-                isOpen ? 'rotate-0' : 'rotate-180',
-              )}
+            <CountryContainer>
+              <CountryImage src={foundCountry.flags.png} />
+              <DialCode>{selectedCountry}</DialCode>
+            </CountryContainer>
+            <Arrow
+              style={{
+                rotate: isOpen ? '180deg' : '',
+              }}
             />
           </>
         ) : (
           'Country not found'
         )}
-      </button>
+      </DropdownButton>
       {isOpen && (
         <div
           ref={setPopperElement}

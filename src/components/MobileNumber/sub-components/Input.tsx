@@ -1,10 +1,21 @@
 import classNames from 'classnames';
 import React, { ChangeEvent, useContext } from 'react';
 import MaskedInput from 'react-text-mask';
+import styled from 'styled-components';
 
 import { InputProps } from '../../../types/MobileNumber';
 import { MobileNumberContext } from '../MobileNumber';
 
+const InputContainer = styled.div`
+  display: flex;
+  flex: 1;
+`;
+const TextInput = styled(MaskedInput)`
+  flex: 1;
+  outline: none;
+  padding: 0px 0.5rem;
+  border: none;
+`;
 const Input = ({
   className = '',
   onChange,
@@ -21,8 +32,8 @@ const Input = ({
 
   // TODO: Will add input mask here
   return (
-    <div className="flex-1 flex">
-      <MaskedInput
+    <InputContainer>
+      <TextInput
         mask={[
           /[1-9]/,
           /\d/,
@@ -41,14 +52,14 @@ const Input = ({
         value={phoneNumber}
         onChange={handleChange}
         className={classNames(
-          'flex-1 outline-none px-2 ltr:rounded-r-md rtl:rounded-l-md text-sm',
+          'ltr:rounded-r-md rtl:rounded-l-md text-sm',
           className,
         )}
         keepCharPositions
         {...restInputProps}
       />
       {append}
-    </div>
+    </InputContainer>
   );
 };
 
