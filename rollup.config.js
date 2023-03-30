@@ -4,7 +4,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import tailwind from 'rollup-plugin-tailwindcss';
 import { terser } from 'rollup-plugin-terser';
 
 export default [
@@ -18,24 +17,14 @@ export default [
     ],
     plugins: [
       external(),
-      resolve(),
+      resolve({ browser: true }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
         minimize: true,
-        modules: true,
-        use: {
-          sass: null,
-          stylus: null,
-          less: { javascriptEnabled: true },
-        },
-        extract: true,
-      }),
-      tailwind({
-        input: 'path/to/entry.css', // required
-        // Tailor the emitted stylesheet to the bundle by removing any unused CSS
-        // (highly recommended when packaging for distribution).
-        purge: false,
+        modules: false,
+
+        extract: false,
       }),
       terser(),
       json(),

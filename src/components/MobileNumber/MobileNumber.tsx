@@ -1,3 +1,5 @@
+import '../../index.css';
+
 import { AxiosResponse } from 'axios';
 import classNames from 'classnames';
 import React, { createContext, useCallback, useEffect, useState } from 'react';

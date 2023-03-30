@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { MobileNumber } from 'react-inter-phone-input-2';
 
