@@ -5,9 +5,14 @@ import {
   DropdownMenuListItemProps,
   DropdownMenuListProps,
   DropdownMenuProps,
+  MobileNumberProps,
 } from './MobileNumber';
 
-export interface MobileNumberContextProps {
+export interface MobileNumberContextProps
+  extends Omit<
+    MobileNumberProps,
+    'onCountryChange' | 'onPhoneNumberChange' | 'value'
+  > {
   countries: Country[] | null;
   phoneNumber: string;
   setPhoneNumber?: (phoneNumber: string) => void;

@@ -52,15 +52,20 @@ const Arrow = styled(ChevronUpSVG)`
 const Dropdown = (props: DropdownProps) => {
   const { className = '', onClick, ...restProps } = props;
 
-  const { countries, selectedCountry, setisOpen, isOpen } =
-    useContext(MobileNumberContext);
+  const {
+    countries,
+    selectedCountry,
+    setisOpen,
+    isOpen,
+    disableDropdown = false,
+  } = useContext(MobileNumberContext);
   const [referenceElement, setReferenceElement] = useState<any>(null);
   const [popperElement, setPopperElement] = useState<any>(null);
   const outsideClickRef = useRef(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     onClick && onClick(e);
-    setisOpen((prev) => !prev);
+    !disableDropdown && setisOpen((prev) => !prev);
   };
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -89,11 +94,13 @@ const Dropdown = (props: DropdownProps) => {
               <CountryImage src={foundCountry.flags.png} />
               <DialCode>{selectedCountry}</DialCode>
             </CountryContainer>
-            <Arrow
-              style={{
-                rotate: isOpen ? '' : '180deg',
-              }}
-            />
+            {!disableDropdown && (
+              <Arrow
+                style={{
+                  rotate: isOpen ? '' : '180deg',
+                }}
+              />
+            )}
           </>
         ) : (
           'Country not found'

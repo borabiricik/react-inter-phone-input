@@ -47,6 +47,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
   dropdownMenuListItemProps = {},
   dropdownMenuListProps = {},
   dropdownMenuProps = {},
+  ...rest
 }) => {
   const [countries, setcountries] = useState<Country[] | null>([]);
   const [isOpen, setisOpen] = useState(false);
@@ -100,6 +101,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         dropdownMenuListItemProps,
         dropdownMenuListProps,
         dropdownMenuProps,
+        ...rest,
       }}
     >
       <ThemeProvider theme={{ ...theme, direction }}>
