@@ -4,6 +4,7 @@ import { usePopper } from 'react-popper';
 import styled from 'styled-components';
 
 import ChevronUpSVG from '../../../assets/images/ChevronUpSVG';
+import { theme } from '../../../assets/theme';
 import { useOnClickOutside } from '../../../hooks/useOutsideClick';
 import { findInCountries } from '../../../lib/utils';
 import { DropdownProps } from '../../../types/MobileNumber';
@@ -43,6 +44,9 @@ const Arrow = styled(ChevronUpSVG)`
   width: 0.8125rem;
   height: 0.8125rem;
   transition: all 0.3s;
+  fill: ${theme.colors.fadingSunset};
+  width: 0.625rem;
+  height: 0.625rem;
 `;
 
 const Dropdown = (props: DropdownProps) => {
@@ -87,7 +91,7 @@ const Dropdown = (props: DropdownProps) => {
             </CountryContainer>
             <Arrow
               style={{
-                rotate: isOpen ? '180deg' : '',
+                rotate: isOpen ? '' : '180deg',
               }}
             />
           </>

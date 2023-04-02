@@ -51,13 +51,14 @@ const CountryName = styled.p`
 `;
 
 const DropdownItem = ({ country, dialCode }: DropdownItemProps) => {
-  const { setSelectedCountry, setisOpen } = useContext(MobileNumberContext);
+  const { setSelectedCountry, setisOpen, dropdownMenuListItemProps } =
+    useContext(MobileNumberContext);
   const handleSelect = () => {
     setSelectedCountry && setSelectedCountry(dialCode);
     setisOpen(false);
   };
   return (
-    <CountryContainer onClick={handleSelect}>
+    <CountryContainer {...dropdownMenuListItemProps} onClick={handleSelect}>
       <FlagContainer>
         <Flag src={country.flags.png} />
         <DialCode>{dialCode}</DialCode>

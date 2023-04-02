@@ -33,17 +33,22 @@ const CountriesContainer = styled.div`
 `;
 
 const DropdownMenu = () => {
-  const { countries, enableSuffixes, searchCountries } =
-    useContext(MobileNumberContext);
+  const {
+    countries,
+    enableSuffixes,
+    searchCountries,
+    dropdownMenuProps,
+    dropdownMenuListProps,
+  } = useContext(MobileNumberContext);
 
   if (countries) {
     const countryArray = searchCountries ? searchCountries : countries;
     return (
-      <GlassDiv>
+      <GlassDiv {...dropdownMenuProps}>
         <SearchInputContainer>
           <SearchInput />
         </SearchInputContainer>
-        <CountriesContainer>
+        <CountriesContainer {...dropdownMenuListProps}>
           {countryArray.map((country, index) => {
             if (enableSuffixes && country.dialCodes.length > 1) {
               return country.dialCodes.map((dialCode, index) => (

@@ -44,6 +44,9 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
   onPhoneNumberChange,
   append,
   enableSuffixes = false,
+  dropdownMenuListItemProps = {},
+  dropdownMenuListProps = {},
+  dropdownMenuProps = {},
 }) => {
   const [countries, setcountries] = useState<Country[] | null>([]);
   const [isOpen, setisOpen] = useState(false);
@@ -94,6 +97,9 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         enableSuffixes,
         searchCountries,
         setsearchCountries,
+        dropdownMenuListItemProps,
+        dropdownMenuListProps,
+        dropdownMenuProps,
       }}
     >
       <ThemeProvider theme={{ ...theme, direction }}>
