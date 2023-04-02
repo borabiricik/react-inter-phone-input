@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "react-inter-phone-input-2",
-  "version": "2.0.2",
+  "name": "react-inter-phone-input",
+  "version": "2.1.4",
   "description": "React International Phone Input",
   "main": "build/index.js",
   "files": [
@@ -106,7 +106,6 @@
     "cssjanus": "^2.1.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "react-popper": "^2.3.0",
-    "react-text-mask": "^5.5.0",
-    "styled-components": "^5.3.9"
+    "react-text-mask": "^5.5.0"
   }
 }
