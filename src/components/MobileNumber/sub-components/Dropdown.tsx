@@ -11,6 +11,11 @@ import { DropdownProps } from '../../../types/MobileNumber';
 import { MobileNumberContext } from '../MobileNumber';
 import DropdownMenu from './DropdownMenu';
 
+const DropdownContainer = styled.div`
+  z-index: 2;
+  position: relative;
+`;
+
 const DropdownButton = styled.button`
   min-width: 90px;
   padding: 8px 12px;
@@ -107,13 +112,13 @@ const Dropdown = (props: DropdownProps) => {
         )}
       </DropdownButton>
       {isOpen && (
-        <div
+        <DropdownContainer
           ref={setPopperElement}
           style={styles.popper}
           {...attributes.popper}
         >
           <DropdownMenu />
-        </div>
+        </DropdownContainer>
       )}
     </div>
   );
