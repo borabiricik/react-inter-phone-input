@@ -103,7 +103,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
           {...restContainerProps}
         >
           <Dropdown {...dropdownProps} />
-          <Input {...inputProps} mask={[]} />
+          <Input {...inputProps} />
         </Container>
       </ThemeProvider>
     </MobileNumberContext.Provider>
