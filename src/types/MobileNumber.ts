@@ -5,12 +5,12 @@ type ContainerProps = HTMLAttributes<HTMLDivElement>;
 
 export type DropdownProps = HTMLAttributes<HTMLButtonElement>;
 
-export type InputProps = MaskedInputProps;
+export type InputProps = Omit<MaskedInputProps, 'mask'>;
 
 export interface MobileNumberProps {
   containerProps?: ContainerProps;
   dropdownProps?: DropdownProps;
-  inputProps?: MaskedInputProps;
+  inputProps?: InputProps;
   direction?: 'rtl' | 'ltr';
   onCountryChange: (dialCode: string) => void;
   onPhoneNumberChange: (phoneNumber: string) => void;

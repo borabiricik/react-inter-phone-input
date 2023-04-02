@@ -16,12 +16,7 @@ const TextInput = styled(MaskedInput)`
   padding: 0px 0.5rem;
   border: none;
 `;
-const Input = ({
-  className = '',
-  onChange,
-  mask,
-  ...restInputProps
-}: InputProps) => {
+const Input = ({ className = '', onChange, ...restInputProps }: InputProps) => {
   const { setPhoneNumber, phoneNumber, append } =
     useContext(MobileNumberContext);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
