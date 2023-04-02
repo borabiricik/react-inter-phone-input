@@ -1,4 +1,3 @@
-import '../../index.css';
 import React from 'react';
 import { MobileNumberContextProps } from '../../types/Context';
 import { MobileNumberProps } from '../../types/MobileNumber';
