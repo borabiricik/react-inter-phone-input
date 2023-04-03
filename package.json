@@ -109,6 +109,7 @@
     "classnames": "^2.3.2",
     "cssjanus": "^2.1.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "framer-motion": "^7.6.1",
     "react-popper": "^2.3.0",
     "react-text-mask": "^5.5.0"
   }

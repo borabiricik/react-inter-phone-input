@@ -25,6 +25,7 @@ const DropdownButton = styled.button`
   gap: 0px 10px;
   border: none;
   border-right: 1px solid #b5b5c3;
+  height: 100%;
   cursor: pointer;
 `;
 

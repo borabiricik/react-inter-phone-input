@@ -22,5 +22,7 @@ export interface MobileNumberProps {
     };
     append?: ReactElement;
     enableSuffixes?: boolean;
+    disableDropdown?: boolean;
+    animatedPlaceholder?: boolean;
 }
 export {};

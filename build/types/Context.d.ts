@@ -1,6 +1,7 @@
 import { Dispatch, ReactElement, SetStateAction } from 'react';
 import { Country } from './Country';
-export interface MobileNumberContextProps {
+import { DropdownMenuListItemProps, DropdownMenuListProps, DropdownMenuProps, MobileNumberProps } from './MobileNumber';
+export interface MobileNumberContextProps extends Omit<MobileNumberProps, 'onCountryChange' | 'onPhoneNumberChange' | 'value'> {
     countries: Country[] | null;
     phoneNumber: string;
     setPhoneNumber?: (phoneNumber: string) => void;
@@ -12,4 +13,7 @@ export interface MobileNumberContextProps {
     enableSuffixes?: boolean;
     searchCountries: Country[] | null;
     setsearchCountries: Dispatch<SetStateAction<Country[] | null>>;
+    dropdownMenuProps?: DropdownMenuProps;
+    dropdownMenuListProps?: DropdownMenuListProps;
+    dropdownMenuListItemProps?: DropdownMenuListItemProps;
 }

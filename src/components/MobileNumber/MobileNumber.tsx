@@ -47,6 +47,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
   dropdownMenuListItemProps = {},
   dropdownMenuListProps = {},
   dropdownMenuProps = {},
+  animatedPlaceholder = false,
   ...rest
 }) => {
   const [countries, setcountries] = useState<Country[] | null>([]);
@@ -101,6 +102,7 @@ export const MobileNumber: React.FC<MobileNumberProps> = ({
         dropdownMenuListItemProps,
         dropdownMenuListProps,
         dropdownMenuProps,
+        animatedPlaceholder,
         ...rest,
       }}
     >

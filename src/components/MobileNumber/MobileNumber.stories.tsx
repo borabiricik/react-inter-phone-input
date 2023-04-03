@@ -53,3 +53,28 @@ export const DropdownDisabled = () => {
     </div>
   );
 };
+
+export const AnimatedPlaceholder = () => {
+  const [phoneNumber, setphoneNumber] = useState('');
+  const [selectedCountryDialCode, setselectedCountryDialCode] =
+    useState('+965');
+
+  return (
+    <div className="">
+      <MobileNumber
+        value={{ phoneNumber: phoneNumber, dialCode: selectedCountryDialCode }}
+        onPhoneNumberChange={(phoneNumber) => {
+          setphoneNumber(phoneNumber);
+        }}
+        onCountryChange={(dialCode) => {
+          setselectedCountryDialCode(dialCode);
+        }}
+        disableDropdown
+        animatedPlaceholder
+        append={<span className="flex items-center text-xs px-2">@</span>}
+      />
+      {selectedCountryDialCode}
+      {phoneNumber}
+    </div>
+  );
+};

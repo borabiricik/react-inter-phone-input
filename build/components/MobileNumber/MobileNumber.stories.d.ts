@@ -5,3 +5,4 @@ declare const _default: {
 };
 export default _default;
 export declare const Default: () => JSX.Element;
+export declare const DropdownDisabled: () => JSX.Element;
