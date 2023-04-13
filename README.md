@@ -31,14 +31,12 @@ yarn add react-inter-phone-input
 
 ## Usage
 
-This is a basic example of `<PhoneInput />` component
+This is a basic example of `<MobileNumber />` component
 
 ```javascript
-import type { NextPage } from 'next';
-import { useState } from 'react';
-import { MobileNumber } from 'react-inter-phone-input-2';
+import { MobileNumber } from 'react-inter-phone-input';
 
-const Home: NextPage = () => {
+const Home = () => {
   const [phoneNumber, setphoneNumber] = useState('965');
   const [selectedCountry, setselectedCountry] = useState('+90');
   return (
@@ -54,8 +52,6 @@ const Home: NextPage = () => {
     </div>
   );
 };
-
-export default Home;
 
 ```
 
