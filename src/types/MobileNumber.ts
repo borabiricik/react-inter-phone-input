@@ -27,6 +27,7 @@ export interface MobileNumberProps {
     phoneNumber: string;
     dialCode: string;
   };
+  required?:boolean
   append?: ReactElement;
   enableSuffixes?: boolean;
   disableDropdown?: boolean;

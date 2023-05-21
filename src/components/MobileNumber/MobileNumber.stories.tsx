@@ -22,7 +22,9 @@ export const Default = () => {
         onCountryChange={(dialCode) => {
           setselectedCountryDialCode(dialCode);
         }}
+        inputProps={{ placeholder: 'asdasd', required: true }}
         append={<span className="flex items-center text-xs px-2">@</span>}
+        required
       />
       {selectedCountryDialCode}
       {phoneNumber}

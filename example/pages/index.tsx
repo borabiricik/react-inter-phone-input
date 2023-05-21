@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import { MobileNumber } from 'react-inter-phone-input-2';
+import { MobileNumber } from 'react-inter-phone-input';
 
 const Home: NextPage = () => {
   const [phoneNumber, setphoneNumber] = useState('965');

@@ -19,6 +19,17 @@ const TextInput = styled(MaskedInput)`
   border: none;
 `;
 
+const RequiredSpan = styled.span`
+  color: red;
+`;
+
+const PlaceholderContainer = styled.div`
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
 const AnimatedPlaceholder = styled(motion.div)`
   position: absolute;
 `;
@@ -29,7 +40,7 @@ const Input = ({
   ...restInputProps
 }: InputProps) => {
   const [isFocused, setisFocused] = useState(false);
-  const { setPhoneNumber, phoneNumber, append, animatedPlaceholder } =
+  const { setPhoneNumber, phoneNumber, append, animatedPlaceholder, required } =
     useContext(MobileNumberContext);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e);
@@ -63,10 +74,13 @@ const Input = ({
         onFocus={() => setisFocused(true)}
         onBlur={() => setisFocused(phoneNumber.length !== 0)}
         keepCharPositions
-        placeholder={!animatedPlaceholder ? placeholder : ''}
+        placeholder={!required && !animatedPlaceholder ? placeholder : ''}
         style={{ paddingTop: animatedPlaceholder ? '8px' : 0 }}
         {...restInputProps}
       />
+      {required && phoneNumber.length === 0 && (
+        <PlaceholderContainer>{placeholder}</PlaceholderContainer>
+      )}
       {animatedPlaceholder && (
         <AnimatedPlaceholder
           animate={{
@@ -75,7 +89,7 @@ const Input = ({
             fontSize: isFocused ? '12px' : '14px',
           }}
         >
-          {'Asdasd'}
+          {placeholder} {required && <RequiredSpan>*</RequiredSpan>}
         </AnimatedPlaceholder>
       )}
       {append}
