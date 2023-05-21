@@ -28,6 +28,7 @@ const PlaceholderContainer = styled.div`
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
+  color: #b6b9c8;
 `;
 
 const AnimatedPlaceholder = styled(motion.div)`
@@ -79,7 +80,9 @@ const Input = ({
         {...restInputProps}
       />
       {required && phoneNumber.length === 0 && (
-        <PlaceholderContainer>{placeholder}</PlaceholderContainer>
+        <PlaceholderContainer>
+          {placeholder} <RequiredSpan>*</RequiredSpan>
+        </PlaceholderContainer>
       )}
       {animatedPlaceholder && (
         <AnimatedPlaceholder
